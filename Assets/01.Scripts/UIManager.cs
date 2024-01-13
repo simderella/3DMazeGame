@@ -8,7 +8,8 @@ public class UIManager : MonoBehaviour
 {
     public TMP_Text text;
     private static UIManager _instance;
-    
+    public string goodjob ;
+
 
 
     public static UIManager Instance
@@ -40,7 +41,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        
+        goodjob = "포탈이 활성화되었습니다.";
     }
 
     private void Update()
@@ -51,7 +52,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            UIManager.Instance.text.text = "포탈이 활성화되었습니다.";
+            Debug.Log(goodjob);
+            text.text = goodjob;
         }
     }
 
@@ -59,7 +61,8 @@ public class UIManager : MonoBehaviour
 
     void RemainSwitch(int remainswitch)
     {
-        UIManager.Instance.text.text = "포탈을 활성화시키기 위한 남은 에너지볼의 개수 :" + remainswitch.ToString();
+        text.text = "포탈을 활성화시키기 위한 남은 에너지볼의 개수 :" + remainswitch.ToString();
     }
+
 
 }
