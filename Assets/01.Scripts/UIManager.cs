@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text text;
     private static UIManager _instance;
     public string goodjob ;
+    public bool intutorial;
 
 
 
@@ -42,24 +43,38 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         goodjob = "포탈이 활성화되었습니다.";
+        intutorial = true;
     }
 
     private void Update()
     {
-        if (gameManager.remainswitch != 0)
+        if(gameManager.remainswitchintutorial == 1)
         {
-            RemainSwitch(gameManager.remainswitch);
+            text.text = "눈앞의 에너지 볼을 모으세요";
         }
         else
         {
-            Debug.Log(goodjob);
-            text.text = goodjob;
+            if (intutorial == true)
+            {
+                text.text = "포탈로 입장하세요";
+            }
+            else 
+            {
+                if (gameManager.remainswitch != 0)
+                {
+                    RemainSwitch(gameManager.remainswitch);
+                }
+                else
+                {
+                    text.text = goodjob;
+                }
+            }
         }
     }
 
 
 
-    void RemainSwitch(int remainswitch)
+    public void RemainSwitch(int remainswitch)
     {
         text.text = "포탈을 활성화시키기 위한 남은 에너지볼의 개수 :" + remainswitch.ToString();
     }

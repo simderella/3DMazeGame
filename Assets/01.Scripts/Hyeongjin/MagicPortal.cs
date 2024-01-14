@@ -13,7 +13,6 @@ public class MagicPortal : MonoBehaviour
         {
             UIManager.Instance.text.color = Color.white;
             UIManager.Instance.goodjob = "수고하셨습니다.";
-            Debug.Log("다음 스테이지로 이동합니다.");
             ;
 
         }
