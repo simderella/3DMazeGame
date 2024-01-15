@@ -7,7 +7,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-   
+    public float baseSpeed = 5f; //기본 속도
+    public float currentSpeed; //현재 속도
+
+
 
     [Header("Movement")]
     public float moveSpeed;
@@ -39,7 +42,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        currentSpeed = baseSpeed; //속도
     }
+
+    private void OnTriggerEnter(Collider other) //속도 관련.
+    {
+        
+    }
+
 
     private void FixedUpdate()
     {

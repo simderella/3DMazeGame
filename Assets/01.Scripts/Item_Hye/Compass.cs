@@ -35,8 +35,6 @@ public class Compass : MonoBehaviour
     }
 
     //방향을 직접 업데이트하는 메서드
-
-
     public void UpdateCompassDirection(Transform player, Transform exit)
     {
         playerTransform = player;
