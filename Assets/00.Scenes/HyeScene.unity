@@ -2984,8 +2984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ced322612d2a0a4da7511f7fc4a002a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  compass: {fileID: 0}
-  exitTransform: {fileID: 0}
   moveSpeed: 10
   jumpForce: 0
   groundLayerMask:
@@ -6092,7 +6090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47abd475a75b0974799fe0df389dfd83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.9
+      value: -34.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47abd475a75b0974799fe0df389dfd83, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6100,7 +6098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47abd475a75b0974799fe0df389dfd83, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.1
+      value: -24.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 47abd475a75b0974799fe0df389dfd83, type: 3}
       propertyPath: m_LocalRotation.w
