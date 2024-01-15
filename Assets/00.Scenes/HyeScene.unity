@@ -17204,6 +17204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GPVFX_POTION C
       objectReference: {fileID: 0}
+    - target: {fileID: 1021588353636906, guid: f75e1608d9f1e4f06a5027de3c813b5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4436227729660434, guid: f75e1608d9f1e4f06a5027de3c813b5d, type: 3}
       propertyPath: m_RootOrder
       value: 0
