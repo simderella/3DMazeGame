@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/02.ScriptableObject/Datas.meta
 guid: eb02932a44ebc5749b6d99eb80b1ede5
+========
+guid: 75165bbc5d312be4fa4f9138f936aee5
+>>>>>>>> main:Assets/01.Scripts/StateMachines.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

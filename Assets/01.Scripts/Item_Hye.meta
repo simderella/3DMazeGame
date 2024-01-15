@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/01.Scripts/Item_Hye.meta
 guid: e30f8809a19e64443b69db01aac0e84d
 folderAsset: yes
+========
+guid: aff9690ca0657bc4cbd182fe0c426982
+>>>>>>>> main:Assets/00.Scenes/LoadingScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
