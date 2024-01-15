@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
-    public ForceRecever ForceReceiver { get; private set; }
+    public ForceReceiver ForceReceiver { get; private set; }
     public CharacterController Controller { get; private set; }
 
     private EnemyStateMachine stateMachine;
