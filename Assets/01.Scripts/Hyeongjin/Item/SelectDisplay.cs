@@ -88,14 +88,13 @@ public class SelectDisplay : MonoBehaviour
 
     public void ONUse(InputAction.CallbackContext context)
     {
-        if (ItemManager.Instance.items[CurrentIndex] != null)
+        if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
         {
             ItemManager.Instance.items[CurrentIndex].GetItem().Use();
         }
     }
     private void SetIndex(int index)
-    {
-        Debug.Log(CurrentIndex + "+" + index);
+    { 
         if(CurrentIndex != index)
         {
         ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();

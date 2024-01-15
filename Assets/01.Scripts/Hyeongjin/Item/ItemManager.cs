@@ -72,7 +72,6 @@ public class ItemManager : MonoBehaviour
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;
                 slots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
                 slots[i].GetComponent<Slot>().item = items[i].GetItem();
-                //slots[i].GetComponent<Slot>().index = i;
                 if (items[i].GetItem().isStackable)
                 {
                     slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = items[i].GetQuantity() + "";
