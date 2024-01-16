@@ -124,7 +124,6 @@ public class ItemManager : MonoBehaviour
                     if (slot.GetItem() == item)
                     {
                         slotToRemove = slot;
-                        slot.GetItem().UnEquip();
                         break;
                     }
                 }
