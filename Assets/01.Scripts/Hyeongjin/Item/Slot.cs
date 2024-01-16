@@ -14,10 +14,10 @@ public class Slot : MonoBehaviour
     public int index;
     public GameObject Highlight;
 
-
+    
     public void Start()
     {
-        item = ItemManager.Instance.items[index].GetItem();//각각의 슬롯에 들어갈 ItemClass는 인벤토리의 ItemManager에서 지정한 인덱스 번호에 맞게 아이템이 들어감
+        //item = ItemManager.Instance.items[index].GetItem();//각각의 슬롯에 들어갈 ItemClass는 인벤토리의 ItemManager에서 지정한 인덱스 번호에 맞게 아이템이 들어감
     }
 
     public void Togglehighlighttrue()//하이라이트 켜기
