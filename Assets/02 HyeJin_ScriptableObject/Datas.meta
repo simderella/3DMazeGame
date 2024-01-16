@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/02.ScriptableObject/Datas.meta
+guid: e2dc78c6746170c4bb24ebbd115cd1f4
+========
+guid: 75165bbc5d312be4fa4f9138f936aee5
+>>>>>>>> main:Assets/01.Scripts/StateMachines.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
