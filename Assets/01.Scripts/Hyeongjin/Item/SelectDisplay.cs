@@ -7,11 +7,12 @@ using static UnityEditor.Progress;
 public class SelectDisplay : MonoBehaviour
 {
     private int CurrentIndex;
+    
 
     private void Start()
     {
-        CurrentIndex = 0;
-        SetIndex(0);
+        //CurrentIndex = 0;
+        //SetIndex(0);
     }
 
     public void ONHotbar1(InputAction.CallbackContext context)
@@ -102,13 +103,16 @@ public class SelectDisplay : MonoBehaviour
     { 
         if(CurrentIndex != index) 
         {
-        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse(); 
+        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
+        ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();
         CurrentIndex = index;
-        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue(); 
+        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
         }
         else
         {
             ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
         }
+        ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+
     }
 }
