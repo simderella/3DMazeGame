@@ -47,9 +47,14 @@ public class PlayerController : MonoBehaviour
         currentSpeed = baseSpeed; //加档
     }
 
-    private void OnTriggerEnter(Collider other) //加档 包访.
+    public void ApplySpeedPotion(float SpeedUp)   //加档
     {
-        
+        currentSpeed += SpeedUp;
+    }
+
+    public void ResetSpeed()    //加档
+    {
+        currentSpeed = baseSpeed;
     }
 
 
@@ -146,4 +151,6 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
+
+
 }
