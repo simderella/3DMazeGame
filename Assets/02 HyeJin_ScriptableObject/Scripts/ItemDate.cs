@@ -38,7 +38,10 @@ public class ItemData : ScriptableObject
     public bool canStack;
     public int maxStackAmount;  //최대 가질 수 있는 양.
 
-    //[Header("Consumable")]
-    //public ItemDataConsumable[] consumables;
+    [Header("Consumable")]
+    public ItemDataConsumable[] consumables;
+
+    [Header("Equip")]
+    public GameObject equipPrefab;
 
 }
