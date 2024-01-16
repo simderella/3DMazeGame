@@ -101,18 +101,22 @@ public class SelectDisplay : MonoBehaviour
     }
     private void SetIndex(int index)
     { 
-        if(CurrentIndex != index) 
+        if (ItemManager.Instance.slots[index].GetComponent<Slot>().item != null)
         {
-        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
-        ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();
-        CurrentIndex = index;
-        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+            if (CurrentIndex != index)
+            {
+                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
+                ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();
+                CurrentIndex = index;
+                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+            }
+            else
+            {
+                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+            }
+            ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+
         }
-        else
-        {
-            ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
-        }
-        ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
 
     }
 }
