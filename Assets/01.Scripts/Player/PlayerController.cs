@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         currentSpeed += SpeedUp;
     }
 
-    public void ResetSpeed()
+    public void ResetSpeed()    //¼Óµµ
     {
         currentSpeed = baseSpeed;
     }
