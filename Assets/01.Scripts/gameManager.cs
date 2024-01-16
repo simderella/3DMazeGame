@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     [HideInInspector] public static int remainswitch = 3;
-    [HideInInspector] public static int previousswitch = remainswitch;
+    [HideInInspector] public static int remainswitchintutorial = 1;
     public GameObject portal;
+    public GameObject portaltutorial;
 
 
     private static gameManager _instance;
@@ -46,6 +47,10 @@ public class gameManager : MonoBehaviour
 
     private void Update()
     {
+        if (remainswitchintutorial == 0)
+        {
+            portaltutorial.SetActive(true);
+        }
         
         if (remainswitch == 0)
         {

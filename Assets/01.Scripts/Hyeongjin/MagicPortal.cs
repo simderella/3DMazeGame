@@ -12,8 +12,7 @@ public class MagicPortal : MonoBehaviour
 
         {
             UIManager.Instance.text.color = Color.white;
-            UIManager.Instance.text.text = "포탈이 활성화되었습니다.";
-            Debug.Log("다음 스테이지로 이동합니다.");
+            UIManager.Instance.goodjob = "수고하셨습니다.";
             ;
 
         }
