@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class ItemManager : MonoBehaviour
 {
     [SerializeField] private GameObject slotsHolder;
-    [SerializeField] private ItemClass itemToAdd;
-    [SerializeField] private ItemClass itemToRemove;
+
 
 
 
@@ -43,14 +42,12 @@ public class ItemManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        slots = new GameObject[slotsHolder.transform.childCount];
+        slots = new GameObject[slotsHolder.transform.childCount]; //slotholder의 자식 오브잭트의 개수만큼의 배열을 생성
 
         for (int i = 0; i < slotsHolder.transform.childCount; i++)
         {
-            slots[i] = slotsHolder.transform.GetChild(i).gameObject;
+            slots[i] = slotsHolder.transform.GetChild(i).gameObject;//slotholder의 자식 오브젝트의 순서대로 번호를 매김
         }
-        Add(itemToAdd);
-        Remove(itemToRemove);
     }
 
 
@@ -60,18 +57,18 @@ public class ItemManager : MonoBehaviour
     }
 
 
-    public void RefreshUI()
+    public void RefreshUI()//슬롯의 정보를 갱신
     {
 
         for (int i = 0; i < slotsHolder.transform.childCount; i++)
         {
-            slots[i].GetComponent<Slot>().index = i;
+            slots[i].GetComponent<Slot>().index = i;//슬롯에 달려있는 Slot컴포넌트의 인덱스는 slot의 i번째임
             try
             {
                 slots[i].SetActive(true);
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;
                 slots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
-                slots[i].GetComponent<Slot>().item = items[i].GetItem();
+                slots[i].GetComponent<Slot>().item = items[i].GetItem();//Slot컴포넌트의 item은 itemManager의 i번째 아이템임
                 if (items[i].GetItem().isStackable)
                 {
                     slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = items[i].GetQuantity() + "";
@@ -94,10 +91,9 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
-    public bool Add(ItemClass item)
+    public void Add(ItemClass item)
     {
-        //items.Add(item);
-        SlotClass slot = Contains(item);
+        SlotClass slot = Contains(item); //slot이 item을 가지고 있는지 확인
         if (slot != null && slot.GetItem().isStackable)
         {
             slot.AddQuantity(1);
@@ -108,19 +104,13 @@ public class ItemManager : MonoBehaviour
             {
                 items.Add(new SlotClass(item, 1));
             }
-            else
-            {
-                return false;
-            }
         }
-        RefreshUI();
-        return true;
     }
 
-    public bool Remove(ItemClass item)
+    public void Remove(ItemClass item)
     {
         SlotClass temp = Contains(item);
-        if (temp != null)
+        if (temp != null && temp.GetItem().isStackable)
         {
             if (temp.GetQuantity() > 1)
             {
@@ -140,24 +130,17 @@ public class ItemManager : MonoBehaviour
                 items.Remove(slotToRemove);
             }
         }
-        else
-        {
-            return false;
-        }
-
-        RefreshUI();
-        return true;
     }
 
 
-    public SlotClass Contains(ItemClass item)
+    public SlotClass Contains(ItemClass item)//item을 받아서 SlotClass로 반환
     {
-        foreach (SlotClass slot in items)
+        foreach (SlotClass slot in items)//items 리스트의 내부 인덱스 끝까지 반복
         {
-            if (slot.GetItem() == item)
-                return slot;
+            if (slot.GetItem() == item)// slot 내의 item이 인자 item와 같다면
+                return slot;//slot을 반환
         }
-        return null;
+        return null;//인벤토리가 아이템을 가지고 있지 않음
     }
 
 

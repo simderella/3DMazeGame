@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 
 public class SelectDisplay : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class SelectDisplay : MonoBehaviour
 
     public void ONHotbar1(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started)//입력받기 시작할 때. 안하면 입력받기 시작할때, 입력받을 때, 입력을 멈출 때 총 세번 작동함.
         {
             SetIndex(0);
         }
@@ -88,22 +89,26 @@ public class SelectDisplay : MonoBehaviour
 
     public void ONUse(InputAction.CallbackContext context)
     {
-        if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+        if (context.started)
         {
-            ItemManager.Instance.items[CurrentIndex].GetItem().Use();
+            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+            {
+                ItemManager.Instance.items[CurrentIndex].GetItem().Use();
+                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
+            }
         }
     }
     private void SetIndex(int index)
     { 
-        if(CurrentIndex != index)
+        if(CurrentIndex != index) 
         {
-        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
+        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse(); 
         CurrentIndex = index;
-        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue(); 
         }
         else
         {
-            ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlight();
+            ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
         }
     }
 }

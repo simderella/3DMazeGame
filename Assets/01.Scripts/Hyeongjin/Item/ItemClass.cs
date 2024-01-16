@@ -9,7 +9,7 @@ public class ItemClass : ScriptableObject
     public Sprite itemIcon;
     public bool isStackable;
 
-    public void Use()
+    public virtual void Use()
     {
         Debug.Log("»ç¿ë");
     }
