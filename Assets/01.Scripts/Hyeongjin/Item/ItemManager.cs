@@ -108,6 +108,31 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public void Destroy(ItemClass item)
+    {
+        SlotClass temp = Contains(item);
+        if (temp != null)
+        {
+            if (temp.GetQuantity() > 1)
+            {
+                temp.SubQuantity(1);//아이템의 수량에서 하나를 뺀다
+            }
+            else
+            {
+                SlotClass slotToRemove = new SlotClass();
+                foreach (SlotClass slot in items)//리스트에 있는 slotclass만큼 반복
+                {
+                    if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
+                    {
+                        slotToRemove = slot;
+                        slot.GetItem().UnEquip();//장착을 해제한다
+                        break;
+                    }
+                }
+                items.Remove(slotToRemove);//같은 아이템이 있던 슬롯을 제거한다.
+            }
+        }
+    }
     public void Remove(ItemClass item)
     {
         SlotClass temp = Contains(item);

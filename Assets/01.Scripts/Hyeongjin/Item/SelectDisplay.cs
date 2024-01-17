@@ -99,6 +99,15 @@ public class SelectDisplay : MonoBehaviour
             }
         }
     }
+
+    public void OnDrop(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
+        }
+    }
+
     private void SetIndex(int index)
     { 
         if (ItemManager.Instance.slots[index].GetComponent<Slot>().item != null)//선택한 index번째 슬롯에 Slot컴포넌트에 아이템이 있다면
