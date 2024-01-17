@@ -24,10 +24,11 @@ public class InteractionManager : MonoBehaviour
     public TextMeshProUGUI promptText;
     private Camera camera;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;   //메인 카메라에
+        camera = Camera.main;
     }
 
     // Update is called once per frame
