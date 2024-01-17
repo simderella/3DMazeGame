@@ -5,24 +5,36 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    
-    void Update()
+    [SerializeField] GameObject popupUI;
+
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.P))
         {
-            ShowPopup("EscMenu");
+            if (popupUI.activeSelf)
+            {
+                ClosePopup();
+            }
+            else
+            {
+                OpenPopup();
+            }
         }
     }
 
-    public void ShowPopup(string popupName)
+    void OpenPopup()
     {
-        GameObject escMenu = Resources.Load<GameObject>($"UIPopup/{popupName}");
-        Instantiate(escMenu);
+        popupUI.SetActive(true);
+        Time.timeScale = 0.0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
-    public void ClosePopup(string popupName)
+    void ClosePopup()
     {
-        GameObject escMenu = Resources.Load<GameObject>($"UIPopup/{popupName}");
-        Destroy(escMenu);
+        popupUI.SetActive(false);
+        Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
