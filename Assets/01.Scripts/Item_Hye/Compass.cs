@@ -31,7 +31,7 @@ public class Compass : MonoBehaviour
             // 방향을 회전 각도로 변환한다.
             float angle = Mathf.Atan2(directionToExit.x, directionToExit.z) * Mathf.Rad2Deg;
 
-            transform.localPosition = new Vector3 (0, 0, 0);
+            //transform.localPosition = new Vector3 (0, 0, 0);
 
             // 나침반을 해당 각도로 회전시킨다.
             transform.rotation = Quaternion.Euler(0f, angle + 45.0f, 0f);
