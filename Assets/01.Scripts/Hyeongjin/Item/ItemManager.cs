@@ -87,7 +87,7 @@ public class ItemManager : MonoBehaviour
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
                 slots[i].transform.GetChild(0).GetComponent<Image>().enabled = false;
                 slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = "";
-                
+
             }
         }
     }
