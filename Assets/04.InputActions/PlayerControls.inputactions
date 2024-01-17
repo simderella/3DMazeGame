@@ -35,7 +35,7 @@
                 {
                     "name": "interact",
                     "type": "Button",
-                    "id": "646f6f6b-0e5e-4ed9-81f1-9c14dde99150",
+                    "id": "2f864d30-8f43-4df3-bdc5-b67e8a73c75f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -331,23 +331,23 @@
                 },
                 {
                     "name": "",
-                    "id": "dddd9f9d-3411-4305-9b60-4acb19896cc0",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "57fb0680-3401-4e62-a172-577315be597d",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8571541c-752a-4f0e-833b-90da2ef5f236",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
