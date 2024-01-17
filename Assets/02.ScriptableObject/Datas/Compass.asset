@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Compass
   itemIcon: {fileID: 21300000, guid: 6e5371d11276d6c4f82174fa66f3778d, type: 3}
   isStackable: 0
-  ItemObject: {fileID: 919132149155446097, guid: 47abd475a75b0974799fe0df389dfd83, type: 3}
+  ItemObject: {fileID: 304470267434528100, guid: c4943cd7af2de294f8d0c34225f88cbe, type: 3}

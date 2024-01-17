@@ -63,11 +63,11 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < slotsHolder.transform.childCount; i++)
         {
             slots[i].GetComponent<Slot>().index = i;//슬롯에 달려있는 Slot컴포넌트의 인덱스는 slot의 i번째임
-            try
+            try //실행하고자 하는 것
             {
                 slots[i].SetActive(true);
-                slots[i].transform.GetChild(1).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 itemclass의 itemicon으로 바꾼다.
-                slots[i].transform.GetChild(1).GetComponent<Image>().enabled = true; //i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 켠다.
+                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 itemclass의 itemicon으로 바꾼다.
+                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().enabled = true; //i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 켠다.
                 slots[i].GetComponent<Slot>().item = items[i].GetItem();//Slot컴포넌트의 item은 itemManager의 i번째 아이템임
                 if (items[i].GetItem().isStackable)
                 {
@@ -80,12 +80,12 @@ public class ItemManager : MonoBehaviour
 
 
             }
-            catch
+            catch //예외처리
             {
                 slots[i].SetActive(false);//i번째 슬롯에 아이템이 없다면 슬롯을 끈다.
                 slots[i].GetComponent<Slot>().item = null;//i번째 슬롯에 Slot컴포넌트의 item을 null로 한다.
-                slots[i].transform.GetChild(1).GetComponent<Image>().sprite = null;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 null로 한다.
-                slots[i].transform.GetChild(1).GetComponent<Image>().enabled = false;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 끈다.
+                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = null;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 null로 한다.
+                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().enabled = false;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 끈다.
                 slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = ""; //i번쨰 슬롯의 두번째 자식오브젝트의 텍스트를 표시하지 않는다
 
 
