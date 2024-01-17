@@ -11,8 +11,8 @@ public class ItemManager : MonoBehaviour
 
 
 
-    public List<SlotClass> items = new List<SlotClass>();
-    public GameObject[] slots;
+    public List<SlotClass> items = new List<SlotClass>();//slotclass타입을 갖는 items라는 리스트를 선언한다.
+    public GameObject[] slots;//게임오브젝트를 사용하는 배열 slot을 선언한다
     private static ItemManager _instance;
 
     public static ItemManager Instance
@@ -42,7 +42,7 @@ public class ItemManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        slots = new GameObject[slotsHolder.transform.childCount]; //slotholder의 자식 오브잭트의 개수만큼의 배열을 생성
+        slots = new GameObject[slotsHolder.transform.childCount]; //배열 slots의 크기는 slotholder의 자식 오브잭트의 개수
 
         for (int i = 0; i < slotsHolder.transform.childCount; i++)
         {

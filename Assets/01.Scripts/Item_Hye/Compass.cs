@@ -14,8 +14,10 @@ public class Compass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerTransform = GameObject.Find("Player").transform;
+        exitTransform = GameObject.Find("End").transform;
         //나침반 화살표 인스턴스 생성
-        compassArrowInstance = Instantiate(compassArrowPrefab, transform.position, Quaternion.identity);
+        //compassArrowInstance = Instantiate(compassArrowPrefab, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -29,8 +31,10 @@ public class Compass : MonoBehaviour
             // 방향을 회전 각도로 변환한다.
             float angle = Mathf.Atan2(directionToExit.x, directionToExit.z) * Mathf.Rad2Deg;
 
+            transform.localPosition = new Vector3 (0, 0, 0);
+
             // 나침반을 해당 각도로 회전시킨다.
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            transform.rotation = Quaternion.Euler(0f, angle + 45.0f, 0f);
         }
     }
 
