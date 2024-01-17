@@ -66,8 +66,8 @@ public class ItemManager : MonoBehaviour
             try
             {
                 slots[i].SetActive(true);
-                slots[i].transform.GetChild(0).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;
-                slots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
+                slots[i].transform.GetChild(1).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;
+                slots[i].transform.GetChild(1).GetComponent<Image>().enabled = true;
                 slots[i].GetComponent<Slot>().item = items[i].GetItem();//Slot컴포넌트의 item은 itemManager의 i번째 아이템임
                 if (items[i].GetItem().isStackable)
                 {
@@ -84,8 +84,8 @@ public class ItemManager : MonoBehaviour
             {
                 slots[i].SetActive(false);
                 slots[i].GetComponent<Slot>().item = null;
-                slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
-                slots[i].transform.GetChild(0).GetComponent<Image>().enabled = false;
+                slots[i].transform.GetChild(1).GetComponent<Image>().sprite = null;
+                slots[i].transform.GetChild(1).GetComponent<Image>().enabled = false;
                 slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = "";
                 
             }

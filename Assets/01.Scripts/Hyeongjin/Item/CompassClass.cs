@@ -5,10 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item/Compass")]
 public class CompassClass : ItemClass
 {
-    public override void Equip()
-    {
-        base.Equip();
-    }
+
     public override void Use()
     {
         Debug.Log("나침반 사용");

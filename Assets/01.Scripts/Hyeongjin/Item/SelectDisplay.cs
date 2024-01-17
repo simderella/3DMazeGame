@@ -120,6 +120,7 @@ public class SelectDisplay : MonoBehaviour
             }
             else
             {
+                ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();
                 ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
             }
             ItemManager.Instance.items[CurrentIndex].GetItem().Equip();

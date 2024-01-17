@@ -12,7 +12,7 @@ public class ItemClass : ScriptableObject
     public GameObject ItemObject;
 
 
-    public virtual void Equip()
+    public void Equip()
     {
         if(ItemObject != null)
         {
