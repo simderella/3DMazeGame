@@ -11,8 +11,8 @@ public class ItemManager : MonoBehaviour
 
 
 
-    public List<SlotClass> items = new List<SlotClass>();//slotclass타입을 갖는 items라는 리스트를 선언한다.
-    public GameObject[] slots;//게임오브젝트를 사용하는 배열 slot을 선언한다
+    public List<SlotClass> items = new List<SlotClass>();
+    public GameObject[] slots;
     private static ItemManager _instance;
 
     public static ItemManager Instance
@@ -42,7 +42,7 @@ public class ItemManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        slots = new GameObject[slotsHolder.transform.childCount]; //배열 slots의 크기는 slotholder의 자식 오브잭트의 개수
+        slots = new GameObject[slotsHolder.transform.childCount]; //slotholder의 자식 오브잭트의 개수만큼의 배열을 생성
 
         for (int i = 0; i < slotsHolder.transform.childCount; i++)
         {
@@ -63,31 +63,30 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < slotsHolder.transform.childCount; i++)
         {
             slots[i].GetComponent<Slot>().index = i;//슬롯에 달려있는 Slot컴포넌트의 인덱스는 slot의 i번째임
-            try //실행하고자 하는 것
+            try
             {
                 slots[i].SetActive(true);
-                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 itemclass의 itemicon으로 바꾼다.
-                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().enabled = true; //i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 켠다.
+                slots[i].transform.GetChild(0).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;
+                slots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
                 slots[i].GetComponent<Slot>().item = items[i].GetItem();//Slot컴포넌트의 item은 itemManager의 i번째 아이템임
                 if (items[i].GetItem().isStackable)
                 {
-                    slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = items[i].GetQuantity() + "";//셀수 있는 아이템은 i번쨰 슬롯의 두번째 자식오브젝트의 텍스트를 아이템의 양으로 표시한다.
+                    slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = items[i].GetQuantity() + "";
                 }
                 else
                 {
-                    slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = "";//셀수 있는 아이템은 i번쨰 슬롯의 두번째 자식오브젝트의 텍스트를 표시하지 않는다.
+                    slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = "";
                 }
 
 
             }
-            catch //예외처리
+            catch
             {
-                slots[i].SetActive(false);//i번째 슬롯에 아이템이 없다면 슬롯을 끈다.
-                slots[i].GetComponent<Slot>().item = null;//i번째 슬롯에 Slot컴포넌트의 item을 null로 한다.
-                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = null;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 null로 한다.
-                slots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>().enabled = false;//i번쨰 슬롯의 두번째 자식오브젝트의 이미지 스프라이트를 끈다.
-                slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = ""; //i번쨰 슬롯의 두번째 자식오브젝트의 텍스트를 표시하지 않는다
-
+                slots[i].SetActive(false);
+                slots[i].GetComponent<Slot>().item = null;
+                slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
+                slots[i].transform.GetChild(0).GetComponent<Image>().enabled = false;
+                slots[i].transform.GetChild(2).GetComponent<TMP_Text>().text = "";
 
             }
         }
@@ -97,42 +96,17 @@ public class ItemManager : MonoBehaviour
         SlotClass slot = Contains(item); //slot이 item을 가지고 있는지 확인
         if (slot != null && slot.GetItem().isStackable)
         {
-            slot.AddQuantity(1);//아이템의 수량에서 하나를 더한다
+            slot.AddQuantity(1);
         }
         else
         {
             if (items.Count < slots.Length)
             {
-                items.Add(new SlotClass(item, 1));//새로운 슬롯에 아이템을 하나 더한다.
+                items.Add(new SlotClass(item, 1));
             }
         }
     }
 
-    public void Destroy(ItemClass item)
-    {
-        SlotClass temp = Contains(item);
-        if (temp != null)
-        {
-            if (temp.GetQuantity() > 1)
-            {
-                temp.SubQuantity(1);//아이템의 수량에서 하나를 뺀다
-            }
-            else
-            {
-                SlotClass slotToRemove = new SlotClass();
-                foreach (SlotClass slot in items)//리스트에 있는 slotclass만큼 반복
-                {
-                    if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
-                    {
-                        slotToRemove = slot;
-                        slot.GetItem().UnEquip();//장착을 해제한다
-                        break;
-                    }
-                }
-                items.Remove(slotToRemove);//같은 아이템이 있던 슬롯을 제거한다.
-            }
-        }
-    }
     public void Remove(ItemClass item)
     {
         SlotClass temp = Contains(item);
@@ -140,21 +114,21 @@ public class ItemManager : MonoBehaviour
         {
             if (temp.GetQuantity() > 1)
             {
-                temp.SubQuantity(1);//아이템의 수량에서 하나를 뺀다
+                temp.SubQuantity(1);
             }
             else
             {
                 SlotClass slotToRemove = new SlotClass();
-                foreach (SlotClass slot in items)//리스트에 있는 slotclass만큼 반복
+                foreach (SlotClass slot in items)
                 {
-                    if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
+                    if (slot.GetItem() == item)
                     {
                         slotToRemove = slot;
-                        slot.GetItem().UnEquip();//장착을 해제한다
+                        slot.GetItem().UnEquip();
                         break;
                     }
                 }
-                items.Remove(slotToRemove);//같은 아이템이 있던 슬롯을 제거한다.
+                items.Remove(slotToRemove);
             }
         }
     }

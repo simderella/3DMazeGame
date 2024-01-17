@@ -33,6 +33,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "interact",
+                    "type": "Button",
+                    "id": "2f864d30-8f43-4df3-bdc5-b67e8a73c75f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "451cd2e4-1562-42cf-a2bb-2fad9393418d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Hotbar1",
                     "type": "Button",
                     "id": "4b2c3a81-dc37-4e37-b9d0-d56f910d407a",
@@ -117,15 +135,6 @@
                     "name": "Use",
                     "type": "Button",
                     "id": "2af3d998-dae1-44e7-a67c-a4e79664c3de",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Drop",
-                    "type": "Button",
-                    "id": "db671c14-cd66-4922-a5be-5746d57a4c86",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -322,12 +331,23 @@
                 },
                 {
                     "name": "",
-                    "id": "e4238b24-f362-4add-a467-6f617f7f2051",
-                    "path": "<Keyboard>/r",
+                    "id": "57fb0680-3401-4e62-a172-577315be597d",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drop",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8571541c-752a-4f0e-833b-90da2ef5f236",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
