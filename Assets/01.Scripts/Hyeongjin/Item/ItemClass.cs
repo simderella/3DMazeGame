@@ -23,16 +23,16 @@ public class ItemClass : ScriptableObject
         }
     }
 
-    public virtual void UnEquip()
+    public void UnEquip()
     {
-        Transform itemHolder = GameObject.Find("ItemHolder").transform;
-        if (itemHolder.childCount > 0)
+        Transform itemHolder = GameObject.Find("ItemHolder").transform;//ItemHolder라는 게임 오브젝트를 가지고 옴
+        if (itemHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
         {
-            Destroy(itemHolder.GetChild(0).gameObject);
+            Destroy(itemHolder.GetChild(0).gameObject);//ItemHolder의 첫번째 자식오브젝트를 제거
         }
     }
 
-    public virtual void Use()
+    public virtual void Use()//하위클래스에서 수정할 수 있도록
     {
         Debug.Log("사용");
     }
