@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
     
     public CharacterHealth CharacterHealth { get; private set; }
 
+
+    public float baseSpeed = 5f; //기본 속도
+    public float currentSpeed; //현재 속도
+
+
     private void Awake()
     {
         AnimationData.Initialize();
@@ -56,6 +61,17 @@ public class Player : MonoBehaviour
     {
         Animator.SetTrigger("Die");
         enabled = false;
+    }
+
+
+    public void ApplySpeedPotion(float SpeedUp)   //속도
+    {
+        currentSpeed += SpeedUp;
+    }
+
+    public void ResetSpeed()    //속도
+    {
+        currentSpeed = baseSpeed;
     }
 
 }
