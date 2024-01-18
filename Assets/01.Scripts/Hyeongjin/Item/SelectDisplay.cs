@@ -7,7 +7,7 @@ using static UnityEditor.Progress;
 public class SelectDisplay : MonoBehaviour
 {
     private int CurrentIndex;
-
+    
 
     private void Start()
     {
@@ -92,37 +92,47 @@ public class SelectDisplay : MonoBehaviour
     {
         if (context.started)
         {
-            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
             {
-                ItemManager.Instance.items[CurrentIndex].GetItem().Use();
-                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
+                ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
+                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
             }
         }
     }
-    private void SetIndex(int index)
+
+    public void OnDrop(InputAction.CallbackContext context)
     {
-        if (ItemManager.Instance.slots[index].GetComponent<Slot>().item != null)
+        if (context.started)
         {
-            if (CurrentIndex != index)
+            ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
+        }
+    }
+
+    private void SetIndex(int index)
+    { 
+        if (ItemManager.Instance.slots[index].GetComponent<Slot>().item != null)//선택한 index번째 슬롯에 Slot컴포넌트에 아이템이 있다면
+        {
+            if (CurrentIndex != index)//선택한 index가 이전 인덱스와 같지 않다면
             {
-                if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+                if(ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//CurrentIndex번째 슬롯에 Slot컴포넌트에 아이템이 있다면
                 {
-                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
-                    ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();
-                    CurrentIndex = index;
-                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();//이전 아이템의 하이라이트 끄기
+                    ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();//이전 아이템 장착 해제
+                    CurrentIndex = index;//CurrentIndex를 index로 갱신
+                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();//현재 아이템의 하이라이트 켜기
                 }
-                else
+                else//CurrentIndex번째 슬롯에 Slot컴포넌트에 아이템이 없다면 이전 아이템의 하이라이트를 끄거나 장착 해제하지 않음
                 {
                     CurrentIndex = index;
                     ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
                 }
             }
-            else
+            else//선택한 index가 이전 인덱스와 같다면
             {
-                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+                ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip(); //아이템이 중복 생성되지 않게 장착 해제하고
+                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue(); //하이라이트 켜기
             }
-            ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+            ItemManager.Instance.items[CurrentIndex].GetItem().Equip();//아이템 장착하기
 
         }
 

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,7 +27,7 @@ public class LoadSceneManager : MonoBehaviour
 
         // 비동기적으로 씬을 로드하고 해당 작업을 AsyncOperation에 저장
         AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(sceneNum);
-        
+
         // 씬 활성화를 제어하는 플래그 설정
         sceneLoad.allowSceneActivation = false;
 
@@ -38,7 +37,7 @@ public class LoadSceneManager : MonoBehaviour
         while (!sceneLoad.isDone)
         {
             yield return null;
-            timer += 0.0005f;
+            timer += Time.deltaTime;
 
             // 씬 로드 진행도가 0.9보다 작을 때
             if (sceneLoad.progress < 0.9f)
@@ -59,9 +58,7 @@ public class LoadSceneManager : MonoBehaviour
                     Time.timeScale = 1.0f;
                     yield break;
                 }
-
             }
         }
-       
     }
 }

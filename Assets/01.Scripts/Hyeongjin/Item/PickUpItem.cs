@@ -21,6 +21,6 @@ public class PickUpItem : MonoBehaviour
     private void AddToInventoryAndDestoryThis(ItemClass itemclass)//인벤토리에 저장하고 제거
     {
         ItemManager.Instance.Add(itemclass);
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

@@ -1,46 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject popupUI;
-
+    
     void Update()
     {
-        // Esc 키를 눌렀을 때
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // 팝업이 현재 활성화되어 있지 않으면 활성화, 이미 활성화되어 있으면 비활성화
-            if (popupUI.activeSelf)
-            {
-                ClosePopup();
-            }
-            else
-            {
-                OpenPopup();
-            }
+            ShowPopup("EscMenu");
         }
-
-        
     }
 
-    void OpenPopup()
+    public void ShowPopup(string popupName)
     {
-        popupUI.SetActive(true);
-        // 팝업이 열릴 때 추가적인 작업 수행
-        Time.timeScale = 0.0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        GameObject escMenu = Resources.Load<GameObject>($"UIPopup/{popupName}");
+        Instantiate(escMenu);
     }
 
-    void ClosePopup()
+    public void ClosePopup(string popupName)
     {
-        popupUI.SetActive(false);
-        // 팝업이 닫힐 때 추가적인 작업 수행
-        Time.timeScale = 1.0f;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        GameObject escMenu = Resources.Load<GameObject>($"UIPopup/{popupName}");
+        Destroy(escMenu);
     }
 }

@@ -9,12 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4436227729660434}
-  - component: {fileID: 2782840722145269702}
-  - component: {fileID: 3299663340401639165}
-  - component: {fileID: 7597939668990916467}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GPVFX_POTION C
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021588353636906}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
@@ -37,67 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2782840722145269702
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021588353636906}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &3299663340401639165
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021588353636906}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4, y: 2, z: 1.4}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7597939668990916467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021588353636906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be815788a871fe4fb2ee81c4aa86b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 288640e28b2893443b7aecb35a656d0a, type: 2}
 --- !u!1 &1050389100684470
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +45,7 @@ GameObject:
   - component: {fileID: 4802741706567478}
   - component: {fileID: 33618896826128822}
   - component: {fileID: 23785029539071662}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GPVFX_Bottle_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +128,7 @@ GameObject:
   - component: {fileID: 4874378374668272}
   - component: {fileID: 33763714083642794}
   - component: {fileID: 23458260680199722}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +211,7 @@ GameObject:
   - component: {fileID: 4829758525157440}
   - component: {fileID: 33304492332863124}
   - component: {fileID: 23753439705546060}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GPVFX_Bottle_C_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4641261677876492}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
