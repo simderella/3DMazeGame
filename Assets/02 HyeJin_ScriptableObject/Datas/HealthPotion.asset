@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealthPotion
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   displayName: "\uCCB4\uB825 \uD3EC\uC158"
-  description: "\uCCB4\uB825\uC744 \uD68C\uBCF5\uC2DC\uCF1C\uC900\uB2E4."
+  description: "\uCCB4\uB825\uC744 30\uB9CC\uD07C \uC62C\uB824\uC900\uB2E4."
   type: 2
   icon: {fileID: 21300000, guid: 3829c13dada4640fea96ae4e1f5bcb68, type: 3}
   dropPrefab: {fileID: 1999239547283070, guid: d027d4bce170c4abf8619a7d7980440e, type: 3}
