@@ -10,7 +10,8 @@ public class MagicPortalintutorial : MonoBehaviour
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        target = player.GetComponent<Transform>();
+        Debug.Log(player.name);
+        target = player.transform;
     }
     void OnTriggerEnter(Collider other)
 
@@ -20,9 +21,9 @@ public class MagicPortalintutorial : MonoBehaviour
 
         {
             UIManager.Instance.intutorial = false;
-            //UIManager.Instance.RemainSwitch(gameManager.remainswitch);
             target.position = StartPosition.position;
-            target.rotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log(target.position);
+            //target.rotation = Quaternion.Euler(0, 0, 0);
 
         }
 

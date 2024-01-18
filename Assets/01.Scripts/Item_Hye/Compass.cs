@@ -14,7 +14,7 @@ public class Compass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.Find("Player").transform;
+        playerTransform = GameObject.Find("Player (1)").transform;
         exitTransform = GameObject.Find("End").transform;
         //나침반 화살표 인스턴스 생성
         //compassArrowInstance = Instantiate(compassArrowPrefab, transform.position, Quaternion.identity);

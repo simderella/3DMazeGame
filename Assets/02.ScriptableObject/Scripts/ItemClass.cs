@@ -12,16 +12,16 @@ public class ItemClass : ScriptableObject
     public GameObject ItemObject;
 
 
-    public void Equip()
+    public virtual void Equip()
     {
         if(ItemObject != null)
         {
             Transform itemHolder = GameObject.Find("ItemHolder").transform; //Hierarchy에 있는 ItemHolder라는 transform을 찾아온다.
             GameObject item = GameObject.Instantiate(ItemObject, itemHolder.position, Quaternion.identity); //ItemObject를 ItemHolder위치에 rotation값은 0으로 생성한다.
-            item.GetComponent<BoxCollider>().enabled = false;
-            item.transform.GetChild(2).GetComponent<BoxCollider>().enabled = false;
+            item.GetComponent<BoxCollider>().enabled = false;//아이템의 BoxCollider를 끈다
+            item.transform.GetChild(2).GetComponent<BoxCollider>().enabled = false;//아이템의 3번쨰 자식 오브젝트의 BoxCollider를 끈다
             item.GetComponent<Rigidbody>().useGravity = false;
-            item.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);//생성된 item의 크기를 0.2로 줄인다.
+            item.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);//생성된 item의 크기를 0.2로 줄인다.
             item.transform.parent = itemHolder.transform;//item을 ItemHolder의 자식으로 생성한다.
         }
     }
