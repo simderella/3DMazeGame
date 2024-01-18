@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -96,6 +97,7 @@ public class SelectDisplay : MonoBehaviour
             {
                 ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
                 ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
+                Descript(CurrentIndex);
             }
         }
     }
@@ -105,6 +107,7 @@ public class SelectDisplay : MonoBehaviour
         if (context.started)
         {
             ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
+            Descript(CurrentIndex);
         }
     }
 
@@ -133,8 +136,13 @@ public class SelectDisplay : MonoBehaviour
                 ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue(); //하이라이트 켜기
             }
             ItemManager.Instance.items[CurrentIndex].GetItem().Equip();//아이템 장착하기
+            Descript(index);
 
         }
 
+    }
+    private void Descript(int index)
+    {
+        UIManager.Instance.description.text = ItemManager.Instance.items[index].GetItem().description;
     }
 }

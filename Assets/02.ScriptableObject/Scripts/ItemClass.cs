@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class ItemClass : ScriptableObject
@@ -10,6 +11,8 @@ public class ItemClass : ScriptableObject
     public Sprite itemIcon;
     public bool isStackable;
     public GameObject ItemObject;
+    [Multiline]
+    public string description;
 
 
     public virtual void Equip()
@@ -37,6 +40,6 @@ public class ItemClass : ScriptableObject
 
     public virtual void Use()//하위클래스에서 수정할 수 있도록
     {
-        Debug.Log("사용");
+        return;
     }
 }
