@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
 
     private int curEquipIndex;
 
-    private PlayerController controller;
+    //private PlayerController controller;
     //private PlayerConditions condition;
 
     [Header("Events")]
@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
     void Awake()
     {
         instance = this;
-        controller = GetComponent<PlayerController>();
+        //controller = GetComponent<PlayerController>();
         //condition = GetComponent<PlayerConditions>();
     }
     private void Start()
@@ -79,13 +79,13 @@ public class Inventory : MonoBehaviour
         {
             inventoryWindow.SetActive(false);
             onCloseInventory?.Invoke();
-            controller.ToggleCursor(false);
+            //controller.ToggleCursor(false);
         }
         else
         {
             inventoryWindow.SetActive(true);
             onOpenInventory?.Invoke();
-            controller.ToggleCursor(true);
+            //controller.ToggleCursor(true);
         }
     }
 

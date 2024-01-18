@@ -50,7 +50,7 @@ public class ItemData : ScriptableObject
     public float speedUpAmount;
     public float speedPoitonDurationTime;
 
-    public IEnumerator UseSpeedPotion(PlayerController player)
+    public IEnumerator UseSpeedPotion(Player player)
     {
         player.ApplySpeedPotion(speedUpAmount);
         yield return new WaitForSeconds(speedPoitonDurationTime);
