@@ -105,13 +105,10 @@ public class SelectDisplay : MonoBehaviour
                 {
                     ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
                     ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
-                    if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item == null)
-                    {
-                        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
-                    }
+
                 }
             }
-            catch 
+            catch //손에 아무것도 없어서 나침반 작동이 실패했다면
             {
                 ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
                 ItemManager.Instance.items[CurrentIndex].GetItem().Use();
@@ -125,11 +122,6 @@ public class SelectDisplay : MonoBehaviour
         if (context.started)
         {
             ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
-            
-            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item == null)
-            {
-                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
-            }
         }
     }
 
@@ -167,11 +159,7 @@ public class SelectDisplay : MonoBehaviour
     {
         if (index >= 0)
         {
-            UIManager.Instance.description.text = ItemManager.Instance.items[index].GetItem().description;
-        }
-        else
-        {
-            index = 0;
+            UIManager.Instance.description.text = ItemManager.Instance.items[index].GetItem().description;//설명란의 설명은 ItemClass에 있는 설명이 된다.
         }
     }
 }

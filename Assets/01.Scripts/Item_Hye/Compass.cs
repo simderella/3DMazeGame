@@ -19,10 +19,10 @@ public class Compass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.Find("ItemHolder").transform;
-        exitTransform = GameObject.Find("End").transform;
+        playerTransform = GameObject.Find("ItemHolder").transform;//ItemHolder라는 게임오브젝트를 찾아서 transform을 가져온다
+        exitTransform = GameObject.Find("End").transform;//End라는 게임오브젝트를 찾아서 transform을 가져온다
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
+        lineRenderer.positionCount = 2;//LineRenderer를 잇는 점의 개수
         lineRenderer.enabled = false;
 
         //나침반 화살표 인스턴스 생성
@@ -33,25 +33,25 @@ public class Compass : MonoBehaviour
     {   
         if (playerTransform != null && exitTransform != null)
         {
-            if(useCompass)
+            if(useCompass)//CompassClass에서 useCompass가 true가 된다면
             {
-                time += Time.deltaTime;
-                if (time < activeTime)
+                time += Time.deltaTime;//시간을 잰다
+                if (time < activeTime)//시간이 ActiveTime을 넘지 못했다면
                 {
-                    lineRenderer.enabled = true;
+                    lineRenderer.enabled = true;//LineRenderer를 켜고
 
-                    lineRenderer.SetPosition(0, playerTransform.position);
-                    lineRenderer.SetPosition(1, exitTransform.position);
+                    lineRenderer.SetPosition(0, playerTransform.position);//LineRenderer의 첫번째 점의 위치는 playerTransform의 position이고
+                    lineRenderer.SetPosition(1, exitTransform.position);//LineRenderer의 두번째 점의 위치는 exitTransform의 position이다
                 }
                 else
                 {
-                    Destroy(this.gameObject);
+                    Destroy(this.gameObject);//시간이 ActiveTime을 넘었다면 이 아이템을 파괴한다.
                 }
             }
 
             else
             {
-                lineRenderer.enabled=false;
+                lineRenderer.enabled=false;//평소에는 LineRenderer를 끈다.
             }
         }
     }
