@@ -10,12 +10,16 @@ using static UnityEditor.Progress;
 public class SelectDisplay : MonoBehaviour
 {
     private int CurrentIndex;
-    
+    private Transform itemHolder;
+
+
 
     private void Start()
     {
-        //CurrentIndex = 0;
-        //SetIndex(0);
+        itemHolder = GameObject.Find("ItemHolder").transform;
+        CurrentIndex = 0;
+        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+        ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
     }
 
     public void ONHotbar1(InputAction.CallbackContext context)
@@ -95,19 +99,23 @@ public class SelectDisplay : MonoBehaviour
     {
         if (context.started)
         {
-            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
+            try
             {
-                ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
-                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
-                if(ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+                if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
                 {
-                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
+                    ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
+                    ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
+                    if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item == null)
+                    {
+                        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
+                    }
                 }
-                else
-                {
-                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
-                    ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
-                }
+            }
+            catch 
+            {
+                ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+                ItemManager.Instance.items[CurrentIndex].GetItem().Use();
+                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
             }
         }
     }
@@ -118,14 +126,9 @@ public class SelectDisplay : MonoBehaviour
         {
             ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
             
-            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item == null)
             {
                 ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
-            }
-            else
-            {
-                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
-                ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
             }
         }
     }

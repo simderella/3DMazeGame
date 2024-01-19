@@ -10,6 +10,7 @@ public class CompassClass : ItemClass
     public override void Use()
     {
         GameObject compass = item;
+        ItemManager.Instance.donotUnEquip = true;
         Compass compassScript = compass.GetComponent<Compass>();
         if (compassScript.useCompass == false)
         {

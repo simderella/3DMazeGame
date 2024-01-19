@@ -13,6 +13,7 @@ public class ItemManager : MonoBehaviour
 
     public List<SlotClass> items = new List<SlotClass>();//slotclass타입을 갖는 items라는 리스트를 선언한다.
     public GameObject[] slots;//게임오브젝트를 사용하는 배열 slot을 선언한다
+    public bool donotUnEquip;
     private static ItemManager _instance;
 
     public static ItemManager Instance
@@ -150,7 +151,14 @@ public class ItemManager : MonoBehaviour
                     if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
                     {
                         slotToRemove = slot;
-                        //slot.GetItem().UnEquip();//장착을 해제한다
+                        if (donotUnEquip)
+                        {
+
+                        }
+                        else
+                        {
+                            slot.GetItem().UnEquip();//장착을 해제한다
+                        }
                         break;
                     }
                 }
