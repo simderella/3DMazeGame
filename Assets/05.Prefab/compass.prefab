@@ -55,6 +55,7 @@ MonoBehaviour:
   compassArrowPrefab: {fileID: 3043629108899123965}
   lineRenderer: {fileID: 0}
   useCompass: 0
+  activeTime: 15
 --- !u!54 &216457554094551607
 Rigidbody:
   m_ObjectHideFlags: 0

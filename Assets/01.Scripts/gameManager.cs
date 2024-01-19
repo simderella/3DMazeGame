@@ -11,6 +11,8 @@ public class gameManager : MonoBehaviour
     [HideInInspector] public static int remainswitchintutorial = 1;
     public GameObject portal;
     public GameObject portaltutorial;
+    public GameObject lightbulb;
+    private Light endlight;
 
 
     private static gameManager _instance;
@@ -42,6 +44,8 @@ public class gameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         portal.SetActive(false);
+        endlight = lightbulb.transform.GetComponent<Light>();
+        endlight.enabled = false;
         remainswitch = 3;
     }
 
@@ -54,6 +58,7 @@ public class gameManager : MonoBehaviour
         
         if (remainswitch == 0)
         {
+            endlight.enabled = true;
             portal.SetActive(true);
         }
     }

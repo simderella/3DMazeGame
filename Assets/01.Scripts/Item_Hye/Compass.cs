@@ -11,14 +11,15 @@ public class Compass : MonoBehaviour
     public LineRenderer lineRenderer;
     public bool useCompass;
     private float time;
-    
+    public float activeTime;
+
 
     private GameObject compassArrowInstance; //나침반 화살표 인스턴스
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.Find("Player").transform;
+        playerTransform = GameObject.Find("ItemHolder").transform;
         exitTransform = GameObject.Find("End").transform;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
@@ -35,20 +36,14 @@ public class Compass : MonoBehaviour
             if(useCompass)
             {
                 time += Time.deltaTime;
-                if (time < 3)
+                if (time < activeTime)
                 {
                     lineRenderer.enabled = true;
 
                     lineRenderer.SetPosition(0, playerTransform.position);
                     lineRenderer.SetPosition(1, exitTransform.position);
-                    
-
                 }
                 else
-                {
-                    Destroy(this.gameObject);
-                }
-                if (useCompass == false)
                 {
                     Destroy(this.gameObject);
                 }
