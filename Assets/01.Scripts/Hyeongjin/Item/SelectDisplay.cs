@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Progress;
@@ -97,7 +99,15 @@ public class SelectDisplay : MonoBehaviour
             {
                 ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
                 ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
-                Descript(CurrentIndex);
+                if(ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+                {
+                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
+                }
+                else
+                {
+                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+                    ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+                }
             }
         }
     }
@@ -107,7 +117,16 @@ public class SelectDisplay : MonoBehaviour
         if (context.started)
         {
             ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
-            Descript(CurrentIndex);
+            
+            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+            {
+                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
+            }
+            else
+            {
+                ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+                ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+            }
         }
     }
 
@@ -143,6 +162,13 @@ public class SelectDisplay : MonoBehaviour
     }
     private void Descript(int index)
     {
-        UIManager.Instance.description.text = ItemManager.Instance.items[index].GetItem().description;
+        if (index >= 0)
+        {
+            UIManager.Instance.description.text = ItemManager.Instance.items[index].GetItem().description;
+        }
+        else
+        {
+            index = 0;
+        }
     }
 }

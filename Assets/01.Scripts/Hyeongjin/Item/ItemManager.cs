@@ -108,7 +108,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void Destroy(ItemClass item)
+    public void Destroy(ItemClass item)//Remove 메서드와 비슷하지만 isStackable이 아닌 아이템도 파괴한다.
     {
         SlotClass temp = Contains(item);
         if (temp != null)
@@ -150,7 +150,7 @@ public class ItemManager : MonoBehaviour
                     if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
                     {
                         slotToRemove = slot;
-                        slot.GetItem().UnEquip();//장착을 해제한다
+                        //slot.GetItem().UnEquip();//장착을 해제한다
                         break;
                     }
                 }
