@@ -9,6 +9,7 @@ public class EnemyAttackState : EnemyBaseState
     private bool alreadyAppliedDealing;
     public EnemyAttackState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
+
     }
 
     public override void Enter()
