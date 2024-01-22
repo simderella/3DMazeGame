@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class gameManager : MonoBehaviour
     [HideInInspector] public static int remainswitchintutorial = 1;
     public GameObject portal;
     public GameObject portaltutorial;
+    public bool goToStartScene;
 
 
     private static gameManager _instance;
@@ -40,7 +42,6 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
         portal.SetActive(false);
         remainswitch = 3;
     }
@@ -56,8 +57,19 @@ public class gameManager : MonoBehaviour
         {
             portal.SetActive(true);
         }
+
+        if(goToStartScene)
+        {
+            StartCoroutine("GoToStartScene");
+        }
+    }
+    
+    IEnumerator GoToStartScene()
+    {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene("StartScene");
     }
 
 
-    
+
 }
