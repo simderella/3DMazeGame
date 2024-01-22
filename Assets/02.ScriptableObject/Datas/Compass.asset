@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Compass
   itemIcon: {fileID: 21300000, guid: 6e5371d11276d6c4f82174fa66f3778d, type: 3}
-  isStackable: 0
+  isStackable: 1
   ItemObject: {fileID: 304470267434528100, guid: c4943cd7af2de294f8d0c34225f88cbe, type: 3}
+  description: "\uCD9C\uAD6C\uAE4C\uC9C0\uC758 \uBC29\uD5A5\uC744 \uAC00\uB9AC\uD0A4\uB294
+    \uB098\uCE68\uBC18\uC785\uB2C8\uB2E4."

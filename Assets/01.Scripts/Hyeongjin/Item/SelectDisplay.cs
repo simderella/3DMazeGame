@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Progress;
@@ -7,12 +10,16 @@ using static UnityEditor.Progress;
 public class SelectDisplay : MonoBehaviour
 {
     private int CurrentIndex;
-    
+    private Transform itemHolder;
+
+
 
     private void Start()
     {
-        //CurrentIndex = 0;
-        //SetIndex(0);
+        itemHolder = GameObject.Find("ItemHolder").transform;
+        CurrentIndex = 0;
+        ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
+        ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
     }
 
     public void ONHotbar1(InputAction.CallbackContext context)
@@ -92,10 +99,20 @@ public class SelectDisplay : MonoBehaviour
     {
         if (context.started)
         {
-            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
+            try
             {
-                ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
-                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
+                if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
+                {
+                    ItemManager.Instance.items[CurrentIndex].GetItem().Use();//itemClass의 use를 불러옴
+                    ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
+
+                }
+            }
+            catch //손에 아무것도 없어서 나침반 작동이 실패했다면
+            {
+                ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+                ItemManager.Instance.items[CurrentIndex].GetItem().Use();
+                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
             }
         }
     }
@@ -133,8 +150,16 @@ public class SelectDisplay : MonoBehaviour
                 ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue(); //하이라이트 켜기
             }
             ItemManager.Instance.items[CurrentIndex].GetItem().Equip();//아이템 장착하기
+            Descript(index);
 
         }
 
+    }
+    private void Descript(int index)
+    {
+        if (index >= 0)
+        {
+            UIManager.Instance.description.text = ItemManager.Instance.items[index].GetItem().description;//설명란의 설명은 ItemClass에 있는 설명이 된다.
+        }
     }
 }

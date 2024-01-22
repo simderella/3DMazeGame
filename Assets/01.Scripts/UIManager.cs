@@ -10,8 +10,7 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     public string goodjob ;
     public bool intutorial;
-
-
+    public TMP_Text description;
 
     public static UIManager Instance
     {
