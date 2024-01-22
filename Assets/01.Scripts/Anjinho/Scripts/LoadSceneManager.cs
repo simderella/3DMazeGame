@@ -37,7 +37,7 @@ public class LoadSceneManager : MonoBehaviour
         while (!sceneLoad.isDone)
         {
             yield return null;
-            timer += Time.deltaTime;
+            timer += 0.0005f;
 
             // 씬 로드 진행도가 0.9보다 작을 때
             if (sceneLoad.progress < 0.9f)

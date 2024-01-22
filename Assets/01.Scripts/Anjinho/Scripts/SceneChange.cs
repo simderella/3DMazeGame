@@ -32,4 +32,12 @@ public class SceneChange : MonoBehaviour
     {
         LoadSceneManager.LoadScene(6);
     }
+
+
+    public void UIPopupClose()
+    {
+        Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 }
