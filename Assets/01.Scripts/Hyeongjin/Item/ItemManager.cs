@@ -13,7 +13,6 @@ public class ItemManager : MonoBehaviour
 
     public List<SlotClass> items = new List<SlotClass>();//데이터 형식이 Slotclass인 items라는 리스트를 선언한다.
     public GameObject[] slots;//데이터 형식이 GameObject인 배열 slot을 선언한다
-    public bool donotUnEquip;
     private static ItemManager _instance;
 
     public static ItemManager Instance
@@ -41,7 +40,6 @@ public class ItemManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
 
         slots = new GameObject[slotsHolder.transform.childCount]; //배열 slots의 크기는 slotholder의 자식 오브잭트의 개수
 
@@ -151,14 +149,7 @@ public class ItemManager : MonoBehaviour
                     if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
                     {
                         slotToRemove = slot;
-                        if (donotUnEquip == false)//나침반을 두번 사용했을때 손에 든 아이템이 사라지지 않도록
-                        {
-                            slot.GetItem().UnEquip();//장착을 해제한다
-                        }
-                        else
-                        {
-                           
-                        }
+                        slot.GetItem().UnEquip();//장착을 해제한다
                         break;
                     }
                 }

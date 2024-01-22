@@ -24,7 +24,6 @@ public class StoneClass : ItemClass
     }
     public override void Use()
     {
-        ItemManager.Instance.donotUnEquip = false;
         Transform itemHolder = GameObject.Find("ItemHolder").transform;//ItemHolder의 transform을 가져온다
         GameObject stone = Instantiate(ItemObject, itemHolder.position, Quaternion.identity);//돌을 생성한다
         stone.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;//닿았을 때 먹지 않도록 한다
