@@ -11,13 +11,11 @@ public class MagicPortal : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
 
         {
-            UIManager.Instance.text.color = Color.white;
+            UIManager.Instance.text.color = Color.black;
             UIManager.Instance.goodjob = "수고하셨습니다.";
             ;
 
         }
-
     }
-
 }
 
