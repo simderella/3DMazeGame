@@ -15,7 +15,6 @@ public class CompassClass : ItemClass
         if (compassScript.useCompass == false)
         {
             compassScript.useCompass = true;
-
         }
 
 
