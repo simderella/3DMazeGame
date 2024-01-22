@@ -11,8 +11,9 @@ public class ItemManager : MonoBehaviour
 
 
 
-    public List<SlotClass> items = new List<SlotClass>();//slotclass타입을 갖는 items라는 리스트를 선언한다.
-    public GameObject[] slots;//게임오브젝트를 사용하는 배열 slot을 선언한다
+    public List<SlotClass> items = new List<SlotClass>();//데이터 형식이 Slotclass인 items라는 리스트를 선언한다.
+    public GameObject[] slots;//데이터 형식이 GameObject인 배열 slot을 선언한다
+    public bool donotUnEquip;
     private static ItemManager _instance;
 
     public static ItemManager Instance
@@ -57,7 +58,7 @@ public class ItemManager : MonoBehaviour
     }
 
 
-    public void RefreshUI()//슬롯의 정보를 갱신
+    public void RefreshUI()//슬롯의 정보를 갱신하는 역할
     {
 
         for (int i = 0; i < slotsHolder.transform.childCount; i++)
@@ -108,7 +109,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void Destroy(ItemClass item)
+    public void Destroy(ItemClass item)//Remove 메서드와 비슷하지만 isStackable이 아닌 아이템도 파괴한다.
     {
         SlotClass temp = Contains(item);
         if (temp != null)
@@ -150,7 +151,14 @@ public class ItemManager : MonoBehaviour
                     if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
                     {
                         slotToRemove = slot;
-                        slot.GetItem().UnEquip();//장착을 해제한다
+                        if (donotUnEquip == false)//나침반을 두번 사용했을때 손에 든 아이템이 사라지지 않도록
+                        {
+                            slot.GetItem().UnEquip();//장착을 해제한다
+                        }
+                        else
+                        {
+                           
+                        }
                         break;
                     }
                 }
