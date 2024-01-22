@@ -112,7 +112,7 @@ public class SelectDisplay : MonoBehaviour
             {
                 ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
                 ItemManager.Instance.items[CurrentIndex].GetItem().Use();
-                ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
+                //ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
             }
         }
     }
