@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
+[System.Serializable]//직렬화 가능한 상택가 됨
 public class SlotClass //슬롯내에 아이템이 존재 유무와 아이템의 개수를 세기 위한 클래스
 {
     [SerializeField] private ItemClass item;
