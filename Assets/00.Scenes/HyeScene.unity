@@ -8670,7 +8670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 9.299988, y: 211}
+  m_AnchoredPosition: {x: 9.300049, y: 211}
   m_SizeDelta: {x: -1178.6, y: 125}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &611155760
@@ -19321,8 +19321,7 @@ MonoBehaviour:
   currentStamina: 0
   staminaDecreaseRate: 20
   staminaRecoveryRate: 10
-  staminaImage: {fileID: 0}
-  playerController: {fileID: 0}
+  staminaImage: {fileID: 2070462977}
 --- !u!1 &1346098418
 GameObject:
   m_ObjectHideFlags: 0
@@ -24164,7 +24163,6 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 3908a8773a3ba934a8372e962a0d2bfd, type: 2}
     quantity: 1
   slots: []
-  donotUnEquip: 0
 --- !u!4 &1696518673
 Transform:
   m_ObjectHideFlags: 0
