@@ -35,7 +35,7 @@ public class SceneChange : MonoBehaviour
     }
     public void Stage5Change()
     {
-        LoadSceneManager.LoadScene(6);
+        LoadSceneManager.LoadScene(5);
         Time.timeScale = 1.0f;
     }
 
