@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": " Interaction",
+                    "type": "Button",
+                    "id": "959b7a8d-13c7-4b32-a8d7-6434de3ba144",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "HotBar1",
                     "type": "Button",
                     "id": "69835c4c-c6bd-4d57-8838-bc6f7e484fdb",
@@ -390,6 +399,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5152c74-a592-4dae-a305-071bfb39dd07",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": " Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

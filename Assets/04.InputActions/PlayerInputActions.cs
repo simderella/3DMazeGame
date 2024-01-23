@@ -73,6 +73,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": "" Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""959b7a8d-13c7-4b32-a8d7-6434de3ba144"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""HotBar1"",
                     ""type"": ""Button"",
                     ""id"": ""69835c4c-c6bd-4d57-8838-bc6f7e484fdb"",
@@ -414,6 +423,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5152c74-a592-4dae-a305-071bfb39dd07"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": "" Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -427,6 +447,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Interaction = m_Player.FindAction(" Interaction", throwIfNotFound: true);
         m_Player_HotBar1 = m_Player.FindAction("HotBar1", throwIfNotFound: true);
         m_Player_HotBar2 = m_Player.FindAction("HotBar2", throwIfNotFound: true);
         m_Player_HotBar3 = m_Player.FindAction("HotBar3", throwIfNotFound: true);
@@ -504,6 +525,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Interaction;
     private readonly InputAction m_Player_HotBar1;
     private readonly InputAction m_Player_HotBar2;
     private readonly InputAction m_Player_HotBar3;
@@ -524,6 +546,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputAction @HotBar1 => m_Wrapper.m_Player_HotBar1;
         public InputAction @HotBar2 => m_Wrapper.m_Player_HotBar2;
         public InputAction @HotBar3 => m_Wrapper.m_Player_HotBar3;
@@ -559,6 +582,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Interaction.started += instance.OnInteraction;
+            @Interaction.performed += instance.OnInteraction;
+            @Interaction.canceled += instance.OnInteraction;
             @HotBar1.started += instance.OnHotBar1;
             @HotBar1.performed += instance.OnHotBar1;
             @HotBar1.canceled += instance.OnHotBar1;
@@ -611,6 +637,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Interaction.started -= instance.OnInteraction;
+            @Interaction.performed -= instance.OnInteraction;
+            @Interaction.canceled -= instance.OnInteraction;
             @HotBar1.started -= instance.OnHotBar1;
             @HotBar1.performed -= instance.OnHotBar1;
             @HotBar1.canceled -= instance.OnHotBar1;
@@ -668,6 +697,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
         void OnHotBar1(InputAction.CallbackContext context);
         void OnHotBar2(InputAction.CallbackContext context);
         void OnHotBar3(InputAction.CallbackContext context);

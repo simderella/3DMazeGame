@@ -9,8 +9,8 @@ using TMPro;
 
 public class gameManager : MonoBehaviour
 {
-    [HideInInspector] public static int remainswitch = 3;
-    [HideInInspector] public static int remainswitchintutorial = 1;
+    [HideInInspector] public static int remainswitch;
+    [HideInInspector] public static int remainswitchintutorial;
     public GameObject portal;
     public GameObject portaltutorial;
     public bool goToStartScene;
@@ -45,8 +45,9 @@ public class gameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        portaltutorial.SetActive(false);
         portal.SetActive(false);
+        remainswitchintutorial = 1;
         remainswitch = 3;
     }
 

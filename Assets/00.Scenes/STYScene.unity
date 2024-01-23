@@ -3903,8 +3903,8 @@ MonoBehaviour:
     comboAttackParameterName: ComboAttack
     baseAttackParameterName: BaseAttack
   <Weapon>k__BackingField: {fileID: 1634246256}
-  baseSpeed: 50
-  currentSpeed: 50
+  baseSpeed: 5
+  currentSpeed: 0
 --- !u!1 &333684633
 GameObject:
   m_ObjectHideFlags: 0
@@ -13945,7 +13945,7 @@ GameObject:
   - component: {fileID: 1622172699}
   m_Layer: 0
   m_Name: NewPlayer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13964,7 +13964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 5
   currentSpeed: 10
-  moveSpeed: 20
+  moveSpeed: 10
   jumpForce: 100
   groundLayerMask:
     serializedVersion: 2
