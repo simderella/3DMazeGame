@@ -20,6 +20,8 @@ public class MagicPortal : MonoBehaviour
             ending.SetActive(true);
             
             gameManager.Instance.goToStartScene = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
