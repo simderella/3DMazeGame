@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 304470267434528100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 952588898623944080}
@@ -50,10 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a92d52b6e1ce441ab3a401c1cfd149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 5912163496884606915, guid: 54d13efd547aaa44e94e33062ff3bd52, type: 3}
+  playerTransform: {fileID: 0}
   exitTransform: {fileID: 0}
   compassArrowPrefab: {fileID: 3043629108899123965}
-  lineRenderer: {fileID: 0}
+  lineRenderer: {fileID: 4246624572287340870}
   useCompass: 0
   activeTime: 15
 --- !u!54 &216457554094551607
@@ -102,7 +102,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.96, y: 0.43, z: 1.91}
+  m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!120 &4246624572287340870
 LineRenderer:
@@ -439,5 +439,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
