@@ -18,7 +18,7 @@ public class LoadSceneManager : MonoBehaviour
     public static void LoadScene(int index)
     {
         sceneNum = index;
-        SceneManager.LoadScene("LoadingScene");
+        //SceneManager.LoadScene("LoadingScene");
     }
 
     IEnumerator LoadScene()

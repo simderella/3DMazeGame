@@ -76,7 +76,9 @@ public class gameManager : MonoBehaviour
     IEnumerator GoToStartScene()
     {
         yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene("StartScene");
+        //SceneManager.LoadScene("StartScene");
+        LoadSceneManager.LoadScene(0);
+
     }
 
     public void GameStart()
