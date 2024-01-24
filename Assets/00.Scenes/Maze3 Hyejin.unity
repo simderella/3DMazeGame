@@ -9955,7 +9955,7 @@ MonoBehaviour:
   staminaRecoveryRate: 10
   walkSpeed: 2
   runSpeed: 5
-  staminaImage: {fileID: 55932514}
+  staminaImage: {fileID: 0}
 --- !u!114 &720394279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11240,6 +11240,7 @@ MonoBehaviour:
   portal: {fileID: 1025132379}
   portaltutorial: {fileID: 2078202456}
   goToStartScene: 0
+  _timerText: {fileID: 0}
 --- !u!4 &834495107
 Transform:
   m_ObjectHideFlags: 0
@@ -26557,6 +26558,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 720394277}
+    - target: {fileID: 4987379510727586951, guid: c4943cd7af2de294f8d0c34225f88cbe, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
