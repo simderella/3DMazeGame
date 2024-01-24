@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 216457554094551607}
   - component: {fileID: 1920962354287910322}
   - component: {fileID: 4246624572287340870}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: compass
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 952588898623944080}
   - component: {fileID: 7335129243256035796}
   - component: {fileID: 4038128397970021852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 4731214653495513721}
   - component: {fileID: 5094367622367307056}
   - component: {fileID: 7195303515039547062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 6679683490964867769}
   - component: {fileID: 8649811850851731287}
   - component: {fileID: 4987379510727586951}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PickUpItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
