@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStateMachine : StateMachine
 {
     public Player Player { get; }
-
+    public NewPlayer NewPlayer { get; private set; }
     // States
     public PlayerIdleState IdleState { get; }
     public PlayerWalkState WalkState { get; }
