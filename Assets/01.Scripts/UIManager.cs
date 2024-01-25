@@ -46,28 +46,32 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if(gameManager.remainswitchintutorial == 1)
+        if(text != null)
         {
-            text.text = "눈앞의 에너지 볼을 모으세요";
-        }
-        else
-        {
-            if (intutorial == true)
+            if (gameManager.remainswitchintutorial == 1)
             {
-                text.text = "포탈로 입장하세요";
+                text.text = "눈앞의 에너지 볼을 모으세요";
             }
-            else 
+            else
             {
-                if (gameManager.remainswitch != 0)
+                if (intutorial == true)
                 {
-                    RemainSwitch(gameManager.remainswitch);
+                    text.text = "포탈로 입장하세요";
                 }
                 else
                 {
-                    text.text = goodjob;
+                    if (gameManager.remainswitch != 0)
+                    {
+                        RemainSwitch(gameManager.remainswitch);
+                    }
+                    else
+                    {
+                        text.text = goodjob;
+                    }
                 }
             }
         }
+        
     }
 
 

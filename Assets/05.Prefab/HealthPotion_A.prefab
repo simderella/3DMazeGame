@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 713486822349829342}
   - component: {fileID: 6179992355933614903}
   - component: {fileID: 2815296348997212165}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513940359847325980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HealthPotion_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,9 +106,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3545985129912190610}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -34.56, y: 0.3, z: -25.713001}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5386831232879079972}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5397180997843486942}
   - component: {fileID: 8545334111201730959}
   - component: {fileID: 5378715773854736711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_Bottle_A_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 1777850628240375694}
   - component: {fileID: 2965448463851392870}
   - component: {fileID: 8525277603070434055}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PickUpItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,9 +226,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6637285112845879191}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 115.2, y: -1, z: 74.71}
-  m_LocalScale: {x: 3.333333, y: 3.333333, z: 3.333333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1513940359847325980}
@@ -266,7 +266,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7249263834851754035
 GameObject:
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6333052036361933471}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 5386831232879079972}
   - component: {fileID: 5716261527655588012}
   - component: {fileID: 4950619038722586389}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_Bottle_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

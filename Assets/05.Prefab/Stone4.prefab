@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5974884862647289713}
   - component: {fileID: 2801527245343207336}
   - component: {fileID: 5921561304538564259}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Stone4
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3580850165668990844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1233726092421318731}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 1233726092421318731}
   - component: {fileID: 1242403159382867259}
   - component: {fileID: 5869492919535738169}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.8, y: 0.8, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5869492919535738169
 MonoBehaviour:

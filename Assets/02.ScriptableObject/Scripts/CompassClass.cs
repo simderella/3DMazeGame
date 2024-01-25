@@ -10,12 +10,14 @@ public class CompassClass : ItemClass
     public override void Use()
     {
         Transform usingItem = GameObject.Find("UsingItem").transform;
-        GameObject compass = GameObject.Instantiate(ItemObject, usingItem.position, Quaternion.identity);
+        GameObject compass = GameObject.Instantiate(ItemObject, usingItem.position, usingItem.rotation);
         compass.GetComponent<BoxCollider>().enabled = false;//아이템의 BoxCollider를 끈다
         compass.transform.GetChild(2).GetComponent<BoxCollider>().enabled = false;//아이템의 3번쨰 자식 오브젝트의 BoxCollider를 끈다
-        compass.GetComponent<Rigidbody>().useGravity = false;
-        compass.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);//생성된 item의 크기를 0.2로 줄인다.
+        compass.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);//생성된 item의 크기를 0.4로 줄인다.
         Compass compassScript = compass.GetComponent<Compass>();
+        Rigidbody rb = compass.GetComponent<Rigidbody>();
+        rb.useGravity = false;//중력을 끈다
+        rb.constraints = RigidbodyConstraints.FreezePosition;
         compass.transform.SetParent(usingItem.transform);
         if (compassScript.useCompass == false)
         {
