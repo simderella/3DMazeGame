@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Progress;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class SelectDisplay : MonoBehaviour
 {
@@ -22,68 +23,80 @@ public class SelectDisplay : MonoBehaviour
         ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
     }
 
-    public void OnHotBar1()
+    public void OnHotBar1(InputAction.CallbackContext context)
     {
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(0);
-
+        }
     }
 
-    public void OnHotBar2()
+    public void OnHotBar2(InputAction.CallbackContext context)
     {
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(1);
+        }
     }
 
-    public void OnHotBar3()
+    public void OnHotBar3(InputAction.CallbackContext context)
     {
- 
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(2);
-
+        }
     }
 
-    public void OnHotBar4()
+    public void OnHotBar4(InputAction.CallbackContext context)
     {
-
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(3);
-
+        }
     }
 
 
-    public void OnHotBar5()
+    public void OnHotBar5(InputAction.CallbackContext context)
     {
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(4);
+        }
     }
-
-    public void OnHotBar6()
+    public void OnHotBar6(InputAction.CallbackContext context)
     {
-
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(5);
-
+        }
     }
-
-    public void OnHotBar7()
+    public void OnHotBar7(InputAction.CallbackContext context)
     {
-
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(6);
-
+        }
     }
-
-    public void OnHotBar8()
+    public void OnHotBar8(InputAction.CallbackContext context)
     {
-
+        if (context.phase == InputActionPhase.Started)
+        {
             SetIndex(7);
-
+        }
+    }
+    public void OnHotBar9(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            SetIndex(8);
+        }
     }
 
-    public void OnHotBar9()
+
+    public void OnUse(InputAction.CallbackContext context)
     {
-
-        SetIndex(8);
-
-    }
-
-    public void OnUse()
-    {
-
+        if (context.phase == InputActionPhase.Started)
+        {
             try
             {
                 if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
@@ -99,14 +112,15 @@ public class SelectDisplay : MonoBehaviour
                 ItemManager.Instance.items[CurrentIndex].GetItem().Use();
                 //ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
             }
-
+        }
     }
 
-    public void OnDrop()
+    public void OnDrop(InputAction.CallbackContext context)
     {
-
+        if (context.phase == InputActionPhase.Started)
+        {
             ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
-
+        }
     }
 
     private void SetIndex(int index)

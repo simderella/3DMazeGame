@@ -7,10 +7,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
+    private Animator animator;
+
     public float baseSpeed = 5f; //기본 속도
     public float currentSpeed; //현재 속도
     [Header("Movement")]
-    public float moveSpeed;
+    public float moveSpeed = 5f;
     private Vector2 curMovementInput;
     public float jumpForce;
     public LayerMask groundLayerMask;
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
         _rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -60,6 +63,15 @@ public class PlayerController : MonoBehaviour
         dir *= moveSpeed;
         dir.y = _rigidbody.velocity.y;
         _rigidbody.velocity = dir;
+
+
+    }
+    void Run(float additionalSpeed)
+    {
+        float speed = currentSpeed + additionalSpeed;
+
+        Vector3 movement = new Vector3(curMovementInput.x, 0f, curMovementInput.y) * speed * Time.deltaTime;
+        transform.Translate(movement);
     }
     void CameraLook()
     {
@@ -77,10 +89,20 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             curMovementInput = context.ReadValue<Vector2>();
+            animator.SetBool("Walk", true);
+            if (Keyboard.current.leftShiftKey.isPressed)
+            {
+                Run(2f);
+            }
+            else
+            {
+                Run(0f);
+            }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
             curMovementInput = Vector2.zero;
+            animator.SetBool("Walk", false);
         }
     }
     public void OnJumpInput(InputAction.CallbackContext context)
@@ -91,6 +113,8 @@ public class PlayerController : MonoBehaviour
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
         }
     }
+
+
     private bool IsGrounded()
     {
         Ray[] rays = new Ray[4]

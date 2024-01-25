@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4598428532457319629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_CORK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7148054605770800087}
   - component: {fileID: 7936410836706388996}
   - component: {fileID: 3330013715674730107}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_Bottle_C_Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 2833646052350478027}
   - component: {fileID: 3422384047834551502}
   - component: {fileID: 2908926321151600793}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_Cork_GPVFX_Corks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 5099244071752361151}
   - component: {fileID: 3079843781914033535}
   - component: {fileID: 9166547638057433287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PickUpItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3529884133461460571}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpeedItem_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 1603548710239458133}
   - component: {fileID: 4564941591297898385}
   - component: {fileID: 8456894837357397452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GPVFX_Bottle_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
