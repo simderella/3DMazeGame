@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class gameManager : MonoBehaviour
     public GameObject portaltutorial;
     public bool goToStartScene;
 
+    [SerializeField] private TextMeshProUGUI _timerText;
+    private float _timer;
+    private bool isPlaying = false;
 
     private static gameManager _instance;
 
@@ -49,6 +53,10 @@ public class gameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            GameStart();
+        }
         if (remainswitchintutorial == 0)
         {
             portaltutorial.SetActive(true);
@@ -73,6 +81,27 @@ public class gameManager : MonoBehaviour
         LoadSceneManager.LoadScene(0);
     }
 
+    public void GameStart()
+    {
+        StartCoroutine(TimerStart());
+    }
 
+    IEnumerator TimerStart()
+    {
+        _timer = 0f;
+        isPlaying = true;
+        while (isPlaying)
+        {
+            _timer += Time.deltaTime;
+            string min = Mathf.Floor(_timer / 60).ToString("00");
+            string sec = (_timer % 60).ToString("00");
+            _timerText.text = string.Format("{0}:{1}", min, sec);
+            yield return null;
 
+            //if (GameOver)
+            //{
+
+            //}
+        }
+    }
 }

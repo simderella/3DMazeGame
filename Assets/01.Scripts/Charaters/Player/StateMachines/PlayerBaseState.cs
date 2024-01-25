@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 //using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -116,7 +117,6 @@ public class PlayerBaseState : IState
         PlayerInput input = stateMachine.Player.Input;
         input.PlayerActions.Movement.canceled += OnMovementCanceled;
         input.PlayerActions.Run.started += OnRunStarted;
-
         stateMachine.Player.Input.PlayerActions.Jump.started += OnJumpStarted;
 
         stateMachine.Player.Input.PlayerActions.Attack.performed += OnAttackPerformed;
@@ -153,6 +153,7 @@ public class PlayerBaseState : IState
     protected void ForceMove()
     {
         stateMachine.Player.Controller.Move(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
+
     }
 
     protected virtual void OnAttackPerformed(InputAction.CallbackContext obj)

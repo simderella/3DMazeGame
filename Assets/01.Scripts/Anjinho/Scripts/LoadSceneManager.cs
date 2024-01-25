@@ -18,7 +18,7 @@ public class LoadSceneManager : MonoBehaviour
     public static void LoadScene(int index)
     {
         sceneNum = index;
-        //SceneManager.LoadScene("LoadingScene");
+        SceneManager.LoadScene("02.LoadingScene");
     }
 
     IEnumerator LoadScene()
@@ -37,7 +37,7 @@ public class LoadSceneManager : MonoBehaviour
         while (!sceneLoad.isDone)
         {
             yield return null;
-            timer += 0.0005f;
+            timer += Time.deltaTime * 0.2f;
 
             // 씬 로드 진행도가 0.9보다 작을 때
             if (sceneLoad.progress < 0.9f)
@@ -55,7 +55,6 @@ public class LoadSceneManager : MonoBehaviour
                 if (progressBar.fillAmount == 1.0f)
                 {
                     sceneLoad.allowSceneActivation = true;
-                    Time.timeScale = 1.0f;
                     yield break;
                 }
             }

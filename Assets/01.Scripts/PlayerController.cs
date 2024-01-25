@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
+    private Animator animator;
+
     public float baseSpeed = 5f; //기본 속도
     public float currentSpeed; //현재 속도
     [Header("Movement")]
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
         _rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -60,6 +63,8 @@ public class PlayerController : MonoBehaviour
         dir *= moveSpeed;
         dir.y = _rigidbody.velocity.y;
         _rigidbody.velocity = dir;
+
+        
     }
     void CameraLook()
     {
@@ -77,10 +82,12 @@ public class PlayerController : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             curMovementInput = context.ReadValue<Vector2>();
+            animator.SetBool("Walk", true);
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
             curMovementInput = Vector2.zero;
+            animator.SetBool("Walk", false);
         }
     }
     public void OnJumpInput(InputAction.CallbackContext context)
