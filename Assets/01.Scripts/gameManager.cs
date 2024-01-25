@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEditorInternal;
 
 public class gameManager : MonoBehaviour
 {
@@ -76,9 +77,7 @@ public class gameManager : MonoBehaviour
     IEnumerator GoToStartScene()
     {
         yield return new WaitForSeconds(5.0f);
-        //SceneManager.LoadScene("StartScene");
         LoadSceneManager.LoadScene(0);
-
     }
 
     public void GameStart()
@@ -93,15 +92,18 @@ public class gameManager : MonoBehaviour
         while (isPlaying)
         {
             _timer += Time.deltaTime;
-            string min = Mathf.Floor(_timer / 60).ToString("00");
-            string sec = (_timer % 60).ToString("00");
-            _timerText.text = string.Format("{0}:{1}", min, sec);
+            SetTimerText(_timer);
             yield return null;
-
-            //if (GameOver)
-            //{
-
-            //}
         }
+
+        PlayerPrefs.SetFloat("Maze4TimeAttack", _timer);
+        PlayerPrefs.Save();
+    }
+
+    void SetTimerText(float time)
+    {
+        string min = Mathf.Floor(time / 60).ToString("00");
+        string sec = (time % 60).ToString("00");
+        _timerText.text = string.Format("{0}:{1}", min, sec);
     }
 }
