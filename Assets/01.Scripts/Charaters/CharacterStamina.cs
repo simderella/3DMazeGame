@@ -33,13 +33,6 @@ public class CharacterStamina : MonoBehaviour
             isRunning = true;
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
         }
-        else
-        {
-            //걷는 중.
-            isRunning = false;
-            currentStamina += staminaRecoveryRate * Time.deltaTime;
-        }
-
         // 스태미나가 소진되면 걷기로 바뀜
         if (currentStamina <= 0)
         {
@@ -51,6 +44,12 @@ public class CharacterStamina : MonoBehaviour
         if (currentStamina == 0)
         {
             isRunning = false;
+        }
+        else
+        {
+            //걷는 중.
+            isRunning = false;
+            currentStamina += staminaRecoveryRate * Time.deltaTime;
         }
 
         // 스태미나가 음수로 떨어지지 않도록 보정
