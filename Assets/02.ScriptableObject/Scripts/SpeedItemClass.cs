@@ -6,6 +6,9 @@ using static UnityEditor.Progress;
 [CreateAssetMenu(menuName = "Item/SpeedItem")]
 public class SpeedItemClass : ItemClass
 {
+    public float speedBoostAmount = 3f; // 이동 속도 증가량
+    public float duration = 5f; // 스피드 포션 지속 시간
+
     public override void Equip()
     {
         if (ItemObject != null)
@@ -20,6 +23,12 @@ public class SpeedItemClass : ItemClass
     }
     public override void Use()
     {
-
+        // 플레이어 컨트롤러를 찾아서 스피드 포션을 적용
+        PlayerController playerController = GameObject.FindObjectOfType<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.ApplySpeedPotion(speedBoostAmount, duration);
+            Debug.Log("스피드 포션을 사용했다.");
+        }
     }
 }
