@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CharacterHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    private int health;
+    [SerializeField] private float maxHealth = 100;
+    private float health;
     public event Action OnDie;
+    public Image healthbar;
 
     public bool IsDead => health == 0;
 
@@ -25,6 +28,8 @@ public class CharacterHealth : MonoBehaviour
             OnDie?.Invoke();
 
         Debug.Log(health);
+        healthbar.fillAmount = GetPercentage();
+        Debug.Log(GetPercentage());
     }
 
     public void PotionHeal(int potion)
@@ -36,6 +41,14 @@ public class CharacterHealth : MonoBehaviour
             health = maxHealth;
         }
 
-        Debug.Log(health);
+        healthbar.fillAmount = GetPercentage();
+
     }
+
+    public float GetPercentage()
+    {
+        return health / maxHealth;
+    }
+
+    
 }

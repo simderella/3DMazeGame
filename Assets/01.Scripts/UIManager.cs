@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class UIManager : MonoBehaviour
     public string goodjob ;
     public bool intutorial;
     public TMP_Text description;
-
+    public Image healthbar;
+    private CharacterHealth characterhealth;
     public static UIManager Instance
     {
         get
@@ -42,6 +44,7 @@ public class UIManager : MonoBehaviour
     {
         goodjob = "포탈이 활성화되었습니다.";
         intutorial = true;
+        characterhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
     }
 
     private void Update()
@@ -71,7 +74,7 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-        
+        healthbar.fillAmount = characterhealth.GetPercentage();
     }
 
 
