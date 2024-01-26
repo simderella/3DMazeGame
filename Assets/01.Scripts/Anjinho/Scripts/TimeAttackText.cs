@@ -22,4 +22,10 @@ public class TimeAttackText : MonoBehaviour
         string sec = (time % 60).ToString("00");
         _previousTimeText.text = string.Format("LastTime {0}:{1}", min, sec);
     }
+
+    public void ResetTimeAttack()
+    {
+        PlayerPrefs.DeleteKey("Maze4TimeAttack");
+        PlayerPrefs.Save();
+    }
 }
