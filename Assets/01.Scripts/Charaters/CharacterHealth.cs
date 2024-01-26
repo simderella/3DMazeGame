@@ -26,4 +26,16 @@ public class CharacterHealth : MonoBehaviour
 
         Debug.Log(health);
     }
+
+    public void PotionHeal(int potion)
+    {
+        health += potion;
+
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        Debug.Log(health);
+    }
 }

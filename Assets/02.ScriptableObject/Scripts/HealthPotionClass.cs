@@ -6,6 +6,7 @@ using static UnityEditor.Progress;
 [CreateAssetMenu(menuName = "Item/HealthPotion")]
 public class HealthPotionClass : ItemClass
 {
+    public int healAmount;
     public override void Equip()
     {
         if (ItemObject != null)
@@ -20,6 +21,7 @@ public class HealthPotionClass : ItemClass
     }
     public override void Use()
     {
-
+        CharacterHealth characterhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
+        characterhealth.PotionHeal(healAmount);
     }
 }
