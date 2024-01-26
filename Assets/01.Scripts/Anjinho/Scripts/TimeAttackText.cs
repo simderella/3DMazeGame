@@ -27,5 +27,6 @@ public class TimeAttackText : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("Maze4TimeAttack");
         PlayerPrefs.Save();
+        //다음에 불러올 때 키에 대한 값이 없으므로 기본값을 0f로 반환
     }
 }
