@@ -5051,8 +5051,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "E\uD0A4\uB97C \uB20C\uB7EC \uC544\uC774\uD15C \uC0AC\uC6A9 \nR\uD0A4\uB97C
-    \uB20C\uB7EC \uC544\uC774\uD15C \uD30C\uAD34"
+  m_text: "P - \uBA54\uB274\nE - \uC544\uC774\uD15C \uC0AC\uC6A9 \nR - \uC544\uC774\uD15C
+    \uD30C\uAD34"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0660e5bb00a45c479933d5db2f8ccdc, type: 2}
   m_sharedMaterial: {fileID: 4837291656666760155, guid: f0660e5bb00a45c479933d5db2f8ccdc, type: 2}
@@ -5086,7 +5086,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -39273,7 +39273,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -705, y: 36}
-  m_SizeDelta: {x: -1524.976, y: 107.324}
+  m_SizeDelta: {x: -1524.976, y: 151.681}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1093074284
 MonoBehaviour:
@@ -58522,7 +58522,7 @@ MonoBehaviour:
   staminaDecreaseRate: 20
   staminaRecoveryRate: 10
   walkSpeed: 2
-  runSpeed: 50
+  runSpeed: 10
   staminaImage: {fileID: 1558576379}
 --- !u!1 &1635847838
 GameObject:
