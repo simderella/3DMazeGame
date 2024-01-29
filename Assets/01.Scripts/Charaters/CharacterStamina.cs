@@ -16,10 +16,12 @@ public class CharacterStamina : MonoBehaviour
     public Image staminaImage;  // 연결할 UI Image 요소
 
     private bool isRunning = false;
+    private PlayerController playerController;
 
     void Start()
     {
         currentStamina = maxStamina;
+        playerController = GetComponent<PlayerController>();
         UpdateStaminaUI();
     }
 
@@ -70,7 +72,7 @@ public class CharacterStamina : MonoBehaviour
         {
             // 달리기 중의 이동 코드 추가
             float speed = runSpeed;
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            playerController.currentSpeed = speed;
 
             // 스태미나 감소
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
@@ -84,7 +86,7 @@ public class CharacterStamina : MonoBehaviour
         else
         {
             // 걷기 중의 이동 코드 추가
-            float speed = walkSpeed;
+            playerController.currentSpeed = walkSpeed;
 
             // 스태미나 회복
             currentStamina += staminaRecoveryRate * Time.deltaTime;
@@ -101,7 +103,7 @@ public class CharacterStamina : MonoBehaviour
                 {
                     // 달리기 버튼이 눌렸을 때만 달리기
                     isRunning = currentStamina > 0;
-                    transform.Translate(Vector3.forward * (isRunning ? runSpeed : speed) * Time.deltaTime);
+                    //transform.Translate(Vector3.forward * (isRunning ? runSpeed : speed) * Time.deltaTime);
                 }
                 else
                 {

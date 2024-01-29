@@ -92,10 +92,10 @@ public class PlayerController : MonoBehaviour
     }
     void Run(float additionalSpeed)
     {
-        float speed = currentSpeed + additionalSpeed;
+        currentSpeed += additionalSpeed;
 
-        Vector3 movement = new Vector3(curMovementInput.x, 0f, curMovementInput.y) * speed * Time.deltaTime;
-        transform.Translate(movement);
+        //Vector3 movement = new Vector3(curMovementInput.x, 0f, curMovementInput.y) * speed * Time.deltaTime;
+        //transform.Translate(movement);
     }
     void CameraLook()
     {
@@ -114,14 +114,6 @@ public class PlayerController : MonoBehaviour
         {
             curMovementInput = context.ReadValue<Vector2>();
             animator.SetBool("Walk", true);
-            if (Keyboard.current.leftShiftKey.isPressed)
-            {
-                Run(200f);
-            }
-            else
-            {
-                Run(0f);
-            }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
