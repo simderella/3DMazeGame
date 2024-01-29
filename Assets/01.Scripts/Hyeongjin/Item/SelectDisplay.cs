@@ -119,7 +119,10 @@ public class SelectDisplay : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
+            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
+            {
+                ItemManager.Instance.Destroy(ItemManager.Instance.items[CurrentIndex].GetItem());
+            }
         }
     }
 
