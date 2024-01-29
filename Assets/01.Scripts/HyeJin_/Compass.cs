@@ -17,7 +17,7 @@ public class Compass : MonoBehaviour
     private GameObject compassArrowInstance; //나침반 화살표 인스턴스
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         playerTransform = GameObject.Find("ItemHolder").transform;//ItemHolder라는 게임오브젝트를 찾아서 transform을 가져온다
         exitTransform = GameObject.Find("End").transform;//End라는 게임오브젝트를 찾아서 transform을 가져온다
