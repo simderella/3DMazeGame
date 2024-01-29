@@ -51781,7 +51781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338f6818b052132409fd7804dbb01f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 3
+  baseSpeed: 4
   currentSpeed: 0
   jumpForce: 50
   groundLayerMask:
@@ -52120,7 +52120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594261302}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -55.27, y: 0.4, z: 76.7}
+  m_LocalPosition: {x: -55.27, y: 0.9, z: 76.7}
   m_LocalScale: {x: 3, y: 2, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
