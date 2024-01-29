@@ -11,7 +11,7 @@ public class ItemClass : ScriptableObject
     public Sprite itemIcon;
     public bool isStackable;
     public GameObject ItemObject;
-    public GameObject item { get; private set; }
+    public GameObject item;
     [Multiline]
     public string description;
 

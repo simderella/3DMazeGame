@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public TMP_Text text;
+    public TMP_Text textinstage5;
     private static UIManager _instance;
     public string goodjob ;
     public bool intutorial;
     public TMP_Text description;
-
+    public Image healthbar;
+    private CharacterHealth characterhealth;
     public static UIManager Instance
     {
         get
@@ -42,21 +44,22 @@ public class UIManager : MonoBehaviour
     {
         goodjob = "포탈이 활성화되었습니다.";
         intutorial = true;
+        characterhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
     }
 
     private void Update()
     {
-        if(text != null)
+        if(textinstage5 != null)
         {
             if (gameManager.remainswitchintutorial == 1)
             {
-                text.text = "눈앞의 에너지 볼을 모으세요";
+                textinstage5.text = "눈앞의 에너지 볼을 모으세요";
             }
             else
             {
                 if (intutorial == true)
                 {
-                    text.text = "포탈로 입장하세요";
+                    textinstage5.text = "포탈로 입장하세요";
                 }
                 else
                 {
@@ -66,19 +69,19 @@ public class UIManager : MonoBehaviour
                     }
                     else
                     {
-                        text.text = goodjob;
+                        textinstage5.text = goodjob;
                     }
                 }
             }
         }
-        
+        healthbar.fillAmount = characterhealth.GetPercentage();
     }
 
 
 
     public void RemainSwitch(int remainswitch)
     {
-        text.text = "포탈을 활성화시키기 위한 남은 에너지볼의 개수 :" + remainswitch.ToString();
+        textinstage5.text = "포탈을 활성화시키기 위한 남은 에너지볼의 개수 :" + remainswitch.ToString();
     }
 
 

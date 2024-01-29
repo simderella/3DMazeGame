@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class CharacterHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    private int health;
+    [SerializeField] private float maxHealth = 100;
+    private float health;
     public event Action OnDie;
 
     [SerializeField] private Image healthBarImage; // 이미지 컴포넌트를 저장할 변수
@@ -35,7 +37,28 @@ public class CharacterHealth : MonoBehaviour
             OnDie?.Invoke();
 
         Debug.Log(health);
+
+        Debug.Log(GetPercentage());
     }
+
+    public void PotionHeal(int potion)
+    {
+        health += potion;
+
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+
+
+    }
+
+    public float GetPercentage()
+    {
+        return health / maxHealth;
+    }
+
+    
 
     private void UpdateHealthBar()
     {

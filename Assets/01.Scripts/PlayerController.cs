@@ -8,14 +8,16 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Animator animator;
+    private Rigidbody _rigidbody;
 
-    public float baseSpeed = 5f; //기본 속도
-    public float currentSpeed; //현재 속도
+    public float baseSpeed = 3f; // 기본 속도
+    public float currentSpeed;  // 현재 속도
+
     [Header("Movement")]
-    public float moveSpeed = 5f;
     private Vector2 curMovementInput;
     public float jumpForce;
     public LayerMask groundLayerMask;
+    
     [Header("Look")]
     public Transform cameraContainer;
     public float minXLook;
@@ -23,29 +25,51 @@ public class PlayerController : MonoBehaviour
     private float camCurXRot;
     public float lookSensitivity;
     private Vector2 mouseDelta;
+    
     [HideInInspector]
     public bool canLook = true;
-    private Rigidbody _rigidbody;
+
     public static PlayerController instance;
+
     private void Awake()
     {
         instance = this;
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        currentSpeed = baseSpeed; //속도
+        currentSpeed = baseSpeed; // 초기화 시 항상 기본 속도로 설정
     }
-    public void ApplySpeedPotion(float SpeedUp)   //속도
+
+    public void ApplySpeedPotion(float speedBoostAmount, float duration)
     {
-        currentSpeed += SpeedUp;
+        // 현재 속도에만 영향을 주도록 수정
+        currentSpeed += speedBoostAmount;
+
+        StartCoroutine(RemoveSpeedBoostAfterDuration(speedBoostAmount, duration));
     }
-    public void ResetSpeed()    //속도
+    private IEnumerator RemoveSpeedBoostAfterDuration(float speedBoostAmount, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        // 현재 속도를 원래 값으로 되돌림
+        currentSpeed -= speedBoostAmount;
+        Debug.Log("이동 속도가 원래대로 돌아갔다!");
+    }
+
+    public void ResetSpeed()  
     {
         currentSpeed = baseSpeed;
     }
+
+    private void Update()
+    {
+        Debug.Log("현재 속도: " + currentSpeed);
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -57,10 +81,11 @@ public class PlayerController : MonoBehaviour
             CameraLook();
         }
     }
+
     private void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
+        dir *= currentSpeed;
         dir.y = _rigidbody.velocity.y;
         _rigidbody.velocity = dir;
 
@@ -146,4 +171,6 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
+
+ 
 }
