@@ -16,5 +16,6 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 1c7c12112b084e34b96cb4d0e156091e, type: 3}
   isStackable: 1
   ItemObject: {fileID: 3545985129912190610, guid: d1d79a162ec1000438d785196ee475c5, type: 3}
-  description: "\uCCB4\uB825\uC744 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+  item: {fileID: 0}
+  description: "\uCCB4\uB825\uC744 50\uB9CC\uD07C \uD68C\uBCF5\uC2DC\uD0A8\uB2E4."
   healAmount: 50
