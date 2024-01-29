@@ -39,6 +39,12 @@ public class SceneChange : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public void ReSetScene()
+    {
+        LoadSceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+    }
+
 
     public void UIPopupClose()
     {
