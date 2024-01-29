@@ -2129,6 +2129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  healthBarImage: {fileID: 0}
 --- !u!143 &163906804
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4121,6 +4122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  healthBarImage: {fileID: 0}
 --- !u!114 &317792427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16723,6 +16725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  healthBarImage: {fileID: 289261140}
 --- !u!43 &1631971335
 Mesh:
   m_ObjectHideFlags: 0
