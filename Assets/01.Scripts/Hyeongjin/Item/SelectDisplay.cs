@@ -20,7 +20,7 @@ public class SelectDisplay : MonoBehaviour
         itemHolder = GameObject.Find("ItemHolder").transform;
         CurrentIndex = 0;
         ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
-        ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
+        //ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
     }
 
     public void OnHotBar1(InputAction.CallbackContext context)
