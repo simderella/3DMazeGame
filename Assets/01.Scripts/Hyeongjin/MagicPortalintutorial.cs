@@ -21,7 +21,7 @@ public class MagicPortalintutorial : MonoBehaviour
         {
             UIManager.Instance.intutorial = false;
             target.position = StartPosition.position;
-            
+            Debug.Log("´ê¾Ò´Ù.");
 
         }
 
