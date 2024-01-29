@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Walk", true);
             if (Keyboard.current.leftShiftKey.isPressed)
             {
-                Run(2f);
+                Run(200f);
             }
             else
             {
