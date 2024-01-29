@@ -11,7 +11,7 @@ public class CharacterStamina : MonoBehaviour
     public float staminaDecreaseRate = 20f;  // 달리기로 인한 스태미나 감소 속도
     public float staminaRecoveryRate = 10f; // 비달리기 상태에서의 스태미나 회복 속도
     public float walkSpeed = 4f; // 걷는 속도
-    public float runSpeed = 8f; // 달리는 속도
+    public float runSpeed = 7f; // 달리는 속도
 
     public Image staminaImage;  // 연결할 UI Image 요소
 
