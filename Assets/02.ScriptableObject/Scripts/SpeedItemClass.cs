@@ -7,7 +7,7 @@ using static UnityEditor.Progress;
 public class SpeedItemClass : ItemClass
 {
     public float speedBoostAmount = 3f; // 이동 속도 증가량
-    public float duration = 5f; // 스피드 포션 지속 시간
+    public float duration = 15f; // 스피드 포션 지속 시간
 
     public override void Equip()
     {
