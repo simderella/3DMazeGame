@@ -77,6 +77,7 @@ public class gameManager : MonoBehaviour
     IEnumerator GoToStartScene()
     {
         yield return new WaitForSeconds(5.0f);
+        SaveAndLoadTime();
         LoadSceneManager.LoadScene(0);
     }
 
@@ -96,8 +97,18 @@ public class gameManager : MonoBehaviour
             yield return null;
         }
 
+        isPlaying = false;
+    }
+
+    void SaveAndLoadTime()
+    {
         PlayerPrefs.SetFloat("Maze4TimeAttack", _timer);
         PlayerPrefs.Save();
+    }
+
+    void gameOver()
+    {
+        //플레이어 health == 0 일때
     }
 
     void SetTimerText(float time)

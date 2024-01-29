@@ -16,4 +16,6 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: df4d8e2b2f3b05a4a9c1b4412d55a219, type: 3}
   isStackable: 1
   ItemObject: {fileID: 4242682089843019601, guid: c12febc7c57a9174fb1d49e2505b4775, type: 3}
-  description: "\uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4\n"
+  description: "\uC77C\uC815 \uC2DC\uAC04\uB3D9\uC548 \uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0A8\uB2E4.\n"
+  speedBoostAmount: 3
+  duration: 5
