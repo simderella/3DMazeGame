@@ -36,9 +36,8 @@ public class CharacterHealth : MonoBehaviour
         if (health == 0)
             OnDie?.Invoke();
 
-        Debug.Log(health);
 
-        Debug.Log(GetPercentage());
+
     }
 
     public void PotionHeal(int potion)
@@ -50,13 +49,10 @@ public class CharacterHealth : MonoBehaviour
             health = maxHealth;
         }
 
-
+        UpdateHealthBar();
     }
 
-    public float GetPercentage()
-    {
-        return health / maxHealth;
-    }
+
 
     
 

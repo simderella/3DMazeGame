@@ -10,8 +10,8 @@ public class CharacterStamina : MonoBehaviour
     public float currentStamina;
     public float staminaDecreaseRate = 20f;  // 달리기로 인한 스태미나 감소 속도
     public float staminaRecoveryRate = 10f; // 비달리기 상태에서의 스태미나 회복 속도
-    public float walkSpeed = 2f; // 걷는 속도
-    public float runSpeed = 5f; // 달리는 속도
+    public float walkSpeed = 4f; // 걷는 속도
+    public float runSpeed = 7f; // 달리는 속도
 
     public Image staminaImage;  // 연결할 UI Image 요소
 
@@ -112,5 +112,23 @@ public class CharacterStamina : MonoBehaviour
                 }
             }
         }
+
+    }
+    public void ApplySpeedPotion(float speedBoostAmount, float duration)
+    {
+        // 현재 속도에만 영향을 주도록 수정
+        walkSpeed += speedBoostAmount;
+        runSpeed += speedBoostAmount;
+
+        StartCoroutine(RemoveSpeedBoostAfterDuration(speedBoostAmount, duration));
+    }
+    private IEnumerator RemoveSpeedBoostAfterDuration(float speedBoostAmount, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        // 현재 속도를 원래 값으로 되돌림
+        walkSpeed -= speedBoostAmount;
+        runSpeed -= speedBoostAmount;
+        Debug.Log("이동 속도가 원래대로 돌아갔다!");
     }
 }
