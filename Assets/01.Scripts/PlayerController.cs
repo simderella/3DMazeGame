@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Rigidbody _rigidbody;
 
-    public float baseSpeed = 3f; // 기본 속도
+    public float baseSpeed = 4f; // 기본 속도
     public float currentSpeed;  // 현재 속도
 
     [Header("Movement")]
@@ -44,21 +44,7 @@ public class PlayerController : MonoBehaviour
         currentSpeed = baseSpeed; // 초기화 시 항상 기본 속도로 설정
     }
 
-    public void ApplySpeedPotion(float speedBoostAmount, float duration)
-    {
-        // 현재 속도에만 영향을 주도록 수정
-        currentSpeed += speedBoostAmount;
 
-        StartCoroutine(RemoveSpeedBoostAfterDuration(speedBoostAmount, duration));
-    }
-    private IEnumerator RemoveSpeedBoostAfterDuration(float speedBoostAmount, float duration)
-    {
-        yield return new WaitForSeconds(duration);
-
-        // 현재 속도를 원래 값으로 되돌림
-        currentSpeed -= speedBoostAmount;
-        Debug.Log("이동 속도가 원래대로 돌아갔다!");
-    }
 
     public void ResetSpeed()  
     {
@@ -67,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("현재 속도: " + currentSpeed);
     }
 
     private void FixedUpdate()
