@@ -114,4 +114,21 @@ public class CharacterStamina : MonoBehaviour
         }
 
     }
+    public void ApplySpeedPotion(float speedBoostAmount, float duration)
+    {
+        // 현재 속도에만 영향을 주도록 수정
+        walkSpeed += speedBoostAmount;
+        runSpeed += speedBoostAmount;
+
+        StartCoroutine(RemoveSpeedBoostAfterDuration(speedBoostAmount, duration));
+    }
+    private IEnumerator RemoveSpeedBoostAfterDuration(float speedBoostAmount, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        // 현재 속도를 원래 값으로 되돌림
+        walkSpeed -= speedBoostAmount;
+        runSpeed -= speedBoostAmount;
+        Debug.Log("이동 속도가 원래대로 돌아갔다!");
+    }
 }
