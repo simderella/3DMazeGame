@@ -44,21 +44,7 @@ public class PlayerController : MonoBehaviour
         currentSpeed = baseSpeed; // 초기화 시 항상 기본 속도로 설정
     }
 
-    public void ApplySpeedPotion(float speedBoostAmount, float duration)
-    {
-        // 현재 속도에만 영향을 주도록 수정
-        currentSpeed += speedBoostAmount;
 
-        StartCoroutine(RemoveSpeedBoostAfterDuration(speedBoostAmount, duration));
-    }
-    private IEnumerator RemoveSpeedBoostAfterDuration(float speedBoostAmount, float duration)
-    {
-        yield return new WaitForSeconds(duration);
-
-        // 현재 속도를 원래 값으로 되돌림
-        currentSpeed -= speedBoostAmount;
-        Debug.Log("이동 속도가 원래대로 돌아갔다!");
-    }
 
     public void ResetSpeed()  
     {

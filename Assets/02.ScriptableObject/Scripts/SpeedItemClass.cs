@@ -24,10 +24,10 @@ public class SpeedItemClass : ItemClass
     public override void Use()
     {
         // 플레이어 컨트롤러를 찾아서 스피드 포션을 적용
-        PlayerController playerController = GameObject.FindObjectOfType<PlayerController>();
-        if (playerController != null)
+        CharacterStamina characterStamina = GameObject.FindObjectOfType<CharacterStamina>();
+        if (characterStamina != null)
         {
-            playerController.ApplySpeedPotion(speedBoostAmount, duration);
+            characterStamina.ApplySpeedPotion(speedBoostAmount, duration);
             Debug.Log("스피드 포션을 사용했다.");
         }
     }
