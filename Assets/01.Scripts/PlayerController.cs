@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Rigidbody _rigidbody;
 
-    public float baseSpeed = 3f; // 기본 속도
+    public float baseSpeed = 4f; // 기본 속도
     public float currentSpeed;  // 현재 속도
 
     [Header("Movement")]
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("현재 속도: " + currentSpeed);
     }
 
     private void FixedUpdate()
