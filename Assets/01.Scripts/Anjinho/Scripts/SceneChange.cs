@@ -51,5 +51,6 @@ public class SceneChange : MonoBehaviour
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        PlayerController.instance.canLook = true;
     }
 }

@@ -28,6 +28,7 @@ public class UIController : MonoBehaviour
         Time.timeScale = 0.0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        PlayerController.instance.canLook = false;
     }
 
     void ClosePopup()
@@ -36,5 +37,6 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        PlayerController.instance.canLook = true;
     }
 }
