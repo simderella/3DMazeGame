@@ -9,14 +9,12 @@ public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody _rigidbody;
+    private SoundManager soundManager;
 
     public float baseSpeed = 4f; // 기본 속도
+    public float runSpeed = 8f;  // 달리는 속도
     public float currentSpeed;  // 현재 속도
 
-
-    private bool isWalking = false; // 걷는 상태를 나타내는 변수 추가
-
-    private SoundManager soundManager;
 
     [Header("Movement")]
     private Vector2 curMovementInput;
@@ -41,16 +39,14 @@ public class PlayerController : MonoBehaviour
         instance = this;
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        soundManager = SoundManager.Instance;
     }
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         currentSpeed = baseSpeed; // 초기화 시 항상 기본 속도로 설정
-        soundManager = SoundManager.Instance;
     }
-
-
 
     public void ResetSpeed()  
     {
@@ -65,7 +61,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        HandleRunningSound(); // 달리는 소리 관리 메서드 호출
     }
+
     private void LateUpdate()
     {
         if (canLook)
@@ -86,21 +84,13 @@ public class PlayerController : MonoBehaviour
     void Run(float additionalSpeed)
     {
         currentSpeed += additionalSpeed;
-        // 달리기 소리 재생
-        soundManager.PlaySFX("RunningSound");
+        
+        soundManager.PlaySFX("RunningSound");   // 달리기 소리 재생
 
         //Vector3 movement = new Vector3(curMovementInput.x, 0f, curMovementInput.y) * speed * Time.deltaTime;
         //transform.Translate(movement);
     }
 
-    void Walk()
-    {
-        // 현재 속도가 기본 속도 이하일 때만 걷는 소리 재생
-        if (!soundManager.IsFootstepPlaying() && currentSpeed <= baseSpeed)
-        {
-            soundManager.PlaySFX("FootstepSound"); // 걷는 소리 재생
-        }
-    }
 
     void CameraLook()
     {
@@ -113,6 +103,7 @@ public class PlayerController : MonoBehaviour
     {
         mouseDelta = context.ReadValue<Vector2>();
     }
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -124,10 +115,9 @@ public class PlayerController : MonoBehaviour
             {
                 soundManager.PlaySFX("FootstepSound"); // 걷는 소리 재생
             }
-            else
+            else // 달리는 속도인 경우
             {
                 soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
-                soundManager.StopFootstepSFX(); // 걷는 소리 중지
             }
         }
         else if (context.phase == InputActionPhase.Canceled)
@@ -135,9 +125,9 @@ public class PlayerController : MonoBehaviour
             curMovementInput = Vector2.zero;
             animator.SetBool("Walk", false);
 
-            // 이동이 멈추면 걷는 소리와 달리는 소리 모두 중지
-            soundManager.StopFootstepSFX();
-        }
+            soundManager.StopFootstepSFX(); // 이동이 멈추면 걷는 소리 중지
+            soundManager.StopRunningSFX(); // 이동이 멈추면 달리는 소리 중지
+        }        
     }
     public void OnJumpInput(InputAction.CallbackContext context)
     {
@@ -148,6 +138,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void HandleRunningSound()
+    {
+        if (currentSpeed > baseSpeed)
+        {
+            soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
+        }
+        else
+        {
+            soundManager.StopRunningSFX(); // 달리는 소리 중지
+        }
+    }
 
     private bool IsGrounded()
     {

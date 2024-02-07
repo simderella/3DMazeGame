@@ -57474,6 +57474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 4
+  runSpeed: 8
   currentSpeed: 0
   jumpForce: 50
   groundLayerMask:

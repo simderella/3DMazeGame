@@ -28,6 +28,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSource;
 
     private bool isFootstepPlaying = false; // 걷는 소리가 현재 재생 중인지 여부
+    private bool isRunningPlaying = false;
 
 
     private void Awake()
@@ -95,9 +96,22 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public bool IsFootstepPlaying()
+    public void StopRunningSFX()
     {
-        return isFootstepPlaying; // 걷는 소리 재생 상태 반환
+        if (isRunningPlaying)
+        {
+            sfxSource.Stop();
+            isRunningPlaying = false;
+        }
     }
 
+    public bool IsFootstepPlaying()
+    {
+        return isFootstepPlaying;
+    }
+
+    public bool IsRunningPlaying()
+    {
+        return isRunningPlaying;
+    }
 }
