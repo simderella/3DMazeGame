@@ -11,7 +11,7 @@ public class ItemClass : ScriptableObject
     public Sprite itemIcon;
     public bool isStackable;
     public GameObject ItemObject;
-    public GameObject item;
+    [HideInInspector]public GameObject item;
     [Multiline]
     public string description;
 
@@ -33,7 +33,7 @@ public class ItemClass : ScriptableObject
         }
     }
 
-    public void UnEquip()
+    public virtual void UnEquip()
     {
         Transform itemHolder = GameObject.Find("ItemHolder").transform;//ItemHolder라는 게임 오브젝트를 가지고 옴
         if (itemHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
@@ -48,5 +48,15 @@ public class ItemClass : ScriptableObject
     public virtual void Use()//하위클래스에서 수정할 수 있도록
     {
         return;
+    }
+
+    public virtual void Shoot()
+    {
+
+    }
+
+    public virtual void StopShoot()
+    {
+
     }
 }

@@ -125,6 +125,26 @@ public class SelectDisplay : MonoBehaviour
             }
         }
     }
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            if(ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+            {
+                ItemManager.Instance.items[CurrentIndex].GetItem().Shoot();
+            }
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
+            {
+                ItemManager.Instance.items[CurrentIndex].GetItem().StopShoot();
+
+            }
+
+        }
+
+    }
 
     private void SetIndex(int index)
     { 

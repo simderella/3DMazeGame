@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955678fa9c142f14ba740e69c03be58b, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  itemName: "\uC18C\uCD1D"
+  itemIcon: {fileID: 21300000, guid: 7831f63e3605c4e4a9ba08990528b555, type: 3}
+  isStackable: 0
+  ItemObject: {fileID: 131900, guid: 1d8e61deede12df46b37e582ad640c5c, type: 3}
+  item: {fileID: 0}
+  description: "\uC18C\uCD1D  :  E\uD0A4\uB97C \uB20C\uB7EC \uC7AC\uC7A5\uC804\uD558\uC138\uC694"
+  damage: 5
+  timeBetweenShooting: 0.3
+  spread: 0.02
+  range: 100
+  reloadtime: 1
+  timeBetweenShots: 0.08
+  magazineSize: 30
+  BulletPerTaps: 1
