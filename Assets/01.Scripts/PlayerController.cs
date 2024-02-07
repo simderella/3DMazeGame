@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     public float baseSpeed = 4f; // 기본 속도
     public float currentSpeed;  // 현재 속도
 
+
+    private bool isWalking = false; // 걷는 상태를 나타내는 변수 추가
+
+    private SoundManager soundManager;
+
     [Header("Movement")]
     private Vector2 curMovementInput;
     public float jumpForce;
@@ -42,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         currentSpeed = baseSpeed; // 초기화 시 항상 기본 속도로 설정
+        soundManager = SoundManager.Instance;
     }
 
 
@@ -80,10 +86,22 @@ public class PlayerController : MonoBehaviour
     void Run(float additionalSpeed)
     {
         currentSpeed += additionalSpeed;
+        // 달리기 소리 재생
+        soundManager.PlaySFX("RunningSound");
 
         //Vector3 movement = new Vector3(curMovementInput.x, 0f, curMovementInput.y) * speed * Time.deltaTime;
         //transform.Translate(movement);
     }
+
+    void Walk()
+    {
+        // 현재 속도가 기본 속도 이하일 때만 걷는 소리 재생
+        if (!soundManager.IsFootstepPlaying() && currentSpeed <= baseSpeed)
+        {
+            soundManager.PlaySFX("FootstepSound"); // 걷는 소리 재생
+        }
+    }
+
     void CameraLook()
     {
         camCurXRot += mouseDelta.y * lookSensitivity;
@@ -101,11 +119,24 @@ public class PlayerController : MonoBehaviour
         {
             curMovementInput = context.ReadValue<Vector2>();
             animator.SetBool("Walk", true);
+
+            if (currentSpeed <= baseSpeed)
+            {
+                soundManager.PlaySFX("FootstepSound"); // 걷는 소리 재생
+            }
+            else
+            {
+                soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
+                soundManager.StopFootstepSFX(); // 걷는 소리 중지
+            }
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
             curMovementInput = Vector2.zero;
             animator.SetBool("Walk", false);
+
+            // 이동이 멈추면 걷는 소리와 달리는 소리 모두 중지
+            soundManager.StopFootstepSFX();
         }
     }
     public void OnJumpInput(InputAction.CallbackContext context)

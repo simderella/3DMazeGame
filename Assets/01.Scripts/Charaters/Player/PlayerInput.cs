@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,4 +24,8 @@ public class PlayerInput : MonoBehaviour
         InputActions.Disable();
     }
 
+    internal bool GetKey(KeyCode w)
+    {
+        throw new NotImplementedException();
+    }
 }
