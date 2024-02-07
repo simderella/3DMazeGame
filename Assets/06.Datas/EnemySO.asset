@@ -16,7 +16,7 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 2
   <ForceTransitionTime>k__BackingField: 0.2
   <Force>k__BackingField: 2
-  <Damage>k__BackingField: 5
+  <Damage>k__BackingField: 50
   <Dealing_Start_TransitionTime>k__BackingField: 0.25
   <Dealing_End_TransitionTime>k__BackingField: 0.35
   <GroundedData>k__BackingField:
