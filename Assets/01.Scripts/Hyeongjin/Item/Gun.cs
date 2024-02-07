@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor.PackageManager;
 using Unity.VisualScripting;
+using System.IO.Pipes;
 
 public class Gun : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Gun : MonoBehaviour
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
 
-    public TextMeshProUGUI text;
+    private TextMeshProUGUI text;
     public GameObject bulletHoleGraphic;
     public ParticleSystem muzzleFlash;
     private AudioSource audioSource;
@@ -46,7 +47,7 @@ public class Gun : MonoBehaviour
             RealShoot();
         }
 
-        text.SetText(bulletsLeft + "/" + gunClass.magazineSize);
+        text.SetText(bulletsLeft/gunClass.BulletPerTaps + "/" + gunClass.magazineSize/gunClass.BulletPerTaps);
     }
 
     private void OnEnable()
@@ -78,7 +79,7 @@ public class Gun : MonoBehaviour
         float x = Random.Range(-gunClass.spread, gunClass.spread);
         float y = Random.Range(-gunClass.spread, gunClass.spread);
 
-        Vector3 dir = fpsCam.transform.forward + new Vector3(x,y,0);
+        Vector3 dir = fpsCam.transform.forward + new Vector3(x, y, 0);
 
 
 
@@ -137,10 +138,10 @@ public class Gun : MonoBehaviour
     {
         if (!reloading && bulletsLeft < gunClass.magazineSize) 
         {
-            reloading = true;
-            Invoke("ReloadFinished", gunClass.reloadtime);
+                    reloading = true;
+        Invoke("ReloadFinished", gunClass.reloadtime);
 
-            PlaySE(reload_Sound);
+        PlaySE(reload_Sound);
         }
 
     }

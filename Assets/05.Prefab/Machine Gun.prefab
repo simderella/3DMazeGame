@@ -104,8 +104,7 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 4294967295
-  text: {fileID: 0}
+    m_Bits: 375
   bulletHoleGraphic: {fileID: 678640143696344176, guid: c941cd95c795d2b46a8d4c25521b4f4f, type: 3}
   muzzleFlash: {fileID: 6185461768458273298}
   fire_Sound: {fileID: 8300000, guid: e196615aab553a14ab4e1aeb462c195c, type: 3}
@@ -122,7 +121,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.686
   m_Pitch: 1
   Loop: 0
   Mute: 0
