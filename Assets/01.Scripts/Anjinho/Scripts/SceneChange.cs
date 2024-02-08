@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class SceneChange : MonoBehaviour
 {
+   
     public void MainScene()
     {
         LoadSceneManager.LoadScene(0);
@@ -36,7 +38,7 @@ public class SceneChange : MonoBehaviour
     public void Stage5Change()
     {
         LoadSceneManager.LoadScene(5);
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1.0f;;
     }
 
     public void ReSetScene()
@@ -51,5 +53,6 @@ public class SceneChange : MonoBehaviour
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        PlayerController.instance.canLook = true;
     }
 }

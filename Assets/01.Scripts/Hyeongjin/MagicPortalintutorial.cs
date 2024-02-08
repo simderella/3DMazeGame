@@ -22,6 +22,8 @@ public class MagicPortalintutorial : MonoBehaviour
         {
             UIManager.Instance.intutorial = false;
             target.position = StartPosition.position;
+            gameManager.Instance.GameStart();
+
             TutorialMaze.SetActive(false);
 
         }
