@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        HandleRunningSound(); // 달리는 소리 관리 메서드 호출
+        //HandleRunningSound(); // 달리는 소리 관리 메서드 호출
     }
 
     private void LateUpdate()
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         currentSpeed += additionalSpeed;
         
-        soundManager.PlaySFX("RunningSound");   // 달리기 소리 재생
+        //soundManager.PlaySFX("RunningSound");   // 달리기 소리 재생
 
         //Vector3 movement = new Vector3(curMovementInput.x, 0f, curMovementInput.y) * speed * Time.deltaTime;
         //transform.Translate(movement);
@@ -111,14 +111,17 @@ public class PlayerController : MonoBehaviour
             curMovementInput = context.ReadValue<Vector2>();
             animator.SetBool("Walk", true);
 
-            if (currentSpeed <= baseSpeed)
-            {
-                soundManager.PlaySFX("FootstepSound"); // 걷는 소리 재생
-            }
-            else // 달리는 속도인 경우
-            {
-                soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
-            }
+            soundManager.PlaySFX("FootstepSound"); // 걷는 소리만 재생
+
+
+            //if (currentSpeed <= baseSpeed)
+            //{
+            //    soundManager.PlaySFX("FootstepSound"); // 걷는 소리 재생
+            //}
+            //else // 달리는 속도인 경우
+            //{
+            //    soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
+            //}
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
@@ -126,7 +129,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Walk", false);
 
             soundManager.StopFootstepSFX(); // 이동이 멈추면 걷는 소리 중지
-            soundManager.StopRunningSFX(); // 이동이 멈추면 달리는 소리 중지
+            //soundManager.StopRunningSFX(); // 이동이 멈추면 달리는 소리 중지
         }        
     }
     public void OnJumpInput(InputAction.CallbackContext context)
@@ -138,17 +141,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void HandleRunningSound()
-    {
-        if (currentSpeed > baseSpeed)
-        {
-            soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
-        }
-        else
-        {
-            soundManager.StopRunningSFX(); // 달리는 소리 중지
-        }
-    }
+    //private void HandleRunningSound()
+    //{
+    //    if (currentSpeed > baseSpeed)
+    //    {
+    //        soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
+    //    }
+    //    else
+    //    {
+    //        soundManager.StopRunningSFX(); // 달리는 소리 중지
+    //    }
+    //}
 
     private bool IsGrounded()
     {

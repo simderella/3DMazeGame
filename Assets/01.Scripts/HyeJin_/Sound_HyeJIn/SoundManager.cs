@@ -114,4 +114,10 @@ public class SoundManager : MonoBehaviour
     {
         return isRunningPlaying;
     }
+    public void PlayItemUseSound()
+    {
+        // 아이템 사용 소리 재생
+        PlaySFX("ItemUseSound");
+    }
+
 }
