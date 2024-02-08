@@ -27,6 +27,11 @@ public class SoundManager : MonoBehaviour
     // 효과음을 재생할 AudioSource
     public AudioSource sfxSource;
 
+    public AudioClip normalBackgroundClip;
+    public AudioClip enemyBackgroundClip;
+
+    private AudioClip previousClip; // 이전 배경 음악을 저장하기 위한 변수
+
     private bool isFootstepPlaying = false; // 걷는 소리가 현재 재생 중인지 여부
     private bool isRunningPlaying = false;
 
@@ -52,6 +57,10 @@ public class SoundManager : MonoBehaviour
                 musicSource.clip = music.clip;
             }
         }
+
+        // 배경 음악 초기화
+        musicSource.clip = normalBackgroundClip;
+        musicSource.Play();
     }
 
     // 배경 음악 재생 메서드
@@ -132,6 +141,41 @@ public class SoundManager : MonoBehaviour
     {
         // 팝업 열릴 때 소리 재생
         PlaySFX("PopupSound");
+    }
+
+    // 플레이어와 적 사이의 거리를 계산하여 배경 음악 변경
+    public void UpdateBackgroundMusic(Vector3 playerPosition, Vector3 enemyPosition, float detectionRange)
+    {
+        float distanceToEnemy = Vector3.Distance(playerPosition, enemyPosition);
+
+        if (distanceToEnemy <= detectionRange)
+        {
+            if (musicSource.clip != enemyBackgroundClip)
+            {
+                previousClip = musicSource.clip; // 이전 배경 음악 저장
+                musicSource.clip = enemyBackgroundClip;
+                musicSource.Play();
+            }
+        }
+        else
+        {
+            if (musicSource.clip != normalBackgroundClip)
+            {
+                previousClip = musicSource.clip; // 이전 배경 음악 저장
+                musicSource.clip = normalBackgroundClip;
+                musicSource.Play();
+            }
+        }
+    }
+
+    // 원래의 배경 음악으로 복구
+    public void RestoreBackgroundMusic()
+    {
+        if (previousClip != null)
+        {
+            musicSource.clip = previousClip;
+            musicSource.Play();
+        }
     }
 
 }
