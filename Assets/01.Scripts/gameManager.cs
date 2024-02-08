@@ -54,10 +54,6 @@ public class gameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            GameStart();
-        }
         if (remainswitchintutorial == 0)
         {
             portaltutorial.SetActive(true);
@@ -102,7 +98,8 @@ public class gameManager : MonoBehaviour
 
     void SaveAndLoadTime()
     {
-        PlayerPrefs.SetFloat("Maze4TimeAttack", _timer);
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetFloat($"Maze{sceneIndex}TimeAttack", _timer);
         PlayerPrefs.Save();
     }
 

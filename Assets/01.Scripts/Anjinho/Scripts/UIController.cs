@@ -7,6 +7,13 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] GameObject popupUI;
 
+    private AudioSource audioSource;
+
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.P))
@@ -18,6 +25,7 @@ public class UIController : MonoBehaviour
             else
             {
                 OpenPopup();
+
             }
 
             // P 버튼을 누를 때 효과음 재생
@@ -31,6 +39,7 @@ public class UIController : MonoBehaviour
         Time.timeScale = 0.0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        PlayerController.instance.canLook = false;
     }
 
     void ClosePopup()
@@ -39,5 +48,6 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        PlayerController.instance.canLook = true;
     }
 }
