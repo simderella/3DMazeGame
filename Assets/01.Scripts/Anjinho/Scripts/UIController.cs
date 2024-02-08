@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject popupUI;
 
     private AudioSource audioSource;
-    public AudioClip Openclip;
+    //public AudioClip Openclip;
 
     private void Awake()
     {
@@ -25,8 +25,8 @@ public class UIController : MonoBehaviour
             else
             {
                 OpenPopup();
-                audioSource.clip = Openclip;
-                audioSource.Play();
+                //audioSource.clip = Openclip;
+                //audioSource.Play();
             }
 
             // P 버튼을 누를 때 효과음 재생
