@@ -72745,7 +72745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartPosition: {fileID: 1975658861}
-  TutorialMaze: {fileID: 0}
+  TutorialMaze: {fileID: 1528646763}
 --- !u!65 &2001209734
 BoxCollider:
   m_ObjectHideFlags: 0
