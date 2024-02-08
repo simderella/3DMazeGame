@@ -17,5 +17,6 @@ public class SetValure : MonoBehaviour
     public void SetLevel(float sliderVal)
     {
         mixer.SetFloat("BackGroundVol", Mathf.Log10(sliderVal) * 20);
+        SoundManager.Instance.SetMusicVolume(sliderVal); // 배경음 볼륨 설정
     }
 }

@@ -87,6 +87,13 @@ public class SoundManager : MonoBehaviour
         Debug.LogWarning("SFX with name " + name + " not found.");
     }
 
+    public void SetMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
+
+
+
     public void StopFootstepSFX()
     {
         if (isFootstepPlaying)
