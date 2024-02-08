@@ -21,6 +21,9 @@ public class HealthPotionClass : ItemClass
     }
     public override void Use()
     {
+        // 아이템 사용 시 소리 재생
+        SoundManager.Instance.PlayItemUseSound();
+
         CharacterHealth characterhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
         characterhealth.PotionHeal(healAmount);
     }

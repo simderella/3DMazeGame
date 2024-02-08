@@ -7105,6 +7105,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b241c69de0fb7bc45bf013005d980d35, type: 3}
   - name: RunningSound
     clip: {fileID: 8300000, guid: 4c4a0c8ea4b9ee243bb7d53e51f8afad, type: 3}
+  - name: ItemUseSound
+    clip: {fileID: 8300000, guid: 2c81c5273a72ab5429790cd96a994c0f, type: 3}
   musicSource: {fileID: 1352014460}
   sfxSource: {fileID: 1620836946}
 --- !u!1001 &229323218

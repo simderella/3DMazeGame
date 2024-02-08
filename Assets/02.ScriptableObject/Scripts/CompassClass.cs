@@ -9,6 +9,9 @@ public class CompassClass : ItemClass
 
     public override void Use()
     {
+        // 아이템 사용 시 소리 재생
+        SoundManager.Instance.PlayItemUseSound();
+
         Transform usingItem = GameObject.Find("UsingItem").transform;
         GameObject compass = GameObject.Instantiate(ItemObject, usingItem.position, usingItem.rotation);
         compass.GetComponent<BoxCollider>().enabled = false;//아이템의 BoxCollider를 끈다
