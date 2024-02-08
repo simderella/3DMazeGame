@@ -19,6 +19,9 @@ public class UIController : MonoBehaviour
             {
                 OpenPopup();
             }
+
+            // P 버튼을 누를 때 효과음 재생
+            SoundManager.Instance.PlaySFX("PopupSound");
         }
     }
 

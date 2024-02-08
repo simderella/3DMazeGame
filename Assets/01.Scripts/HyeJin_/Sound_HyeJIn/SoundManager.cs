@@ -87,6 +87,12 @@ public class SoundManager : MonoBehaviour
         Debug.LogWarning("SFX with name " + name + " not found.");
     }
 
+    public void SetMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
+
+
     public void StopFootstepSFX()
     {
         if (isFootstepPlaying)
@@ -103,6 +109,7 @@ public class SoundManager : MonoBehaviour
             sfxSource.Stop();
             isRunningPlaying = false;
         }
+
     }
 
     public bool IsFootstepPlaying()
@@ -114,10 +121,17 @@ public class SoundManager : MonoBehaviour
     {
         return isRunningPlaying;
     }
+
     public void PlayItemUseSound()
     {
         // 아이템 사용 소리 재생
         PlaySFX("ItemUseSound");
+    }
+
+    public void PopupOpenSound()
+    {
+        // 팝업 열릴 때 소리 재생
+        PlaySFX("PopupSound");
     }
 
 }
