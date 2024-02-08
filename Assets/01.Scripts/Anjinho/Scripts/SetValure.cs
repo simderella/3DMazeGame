@@ -18,6 +18,6 @@ public class SetValure : MonoBehaviour
     {
         mixer.SetFloat("BackGroundVol", Mathf.Log10(sliderVal) * 20);
        // SoundManager를 통해 배경음과 효과음 볼륨 설정
-        SoundManager.Instance.SetMusicVolume(sliderVal);
+        //SoundManager.Instance.SetMusicVolume(sliderVal);
     }
 }
