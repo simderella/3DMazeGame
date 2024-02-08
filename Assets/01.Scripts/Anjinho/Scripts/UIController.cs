@@ -7,6 +7,13 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] GameObject popupUI;
 
+    private AudioSource audioSource;
+    public AudioClip Openclip;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.P))
@@ -18,6 +25,8 @@ public class UIController : MonoBehaviour
             else
             {
                 OpenPopup();
+                audioSource.clip = Openclip;
+                audioSource.Play();
             }
         }
     }
