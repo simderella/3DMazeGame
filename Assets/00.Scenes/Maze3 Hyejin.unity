@@ -46810,7 +46810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartPosition: {fileID: 0}
-  TutorialMaze: {fileID: 0}
+  TutorialMaze: {fileID: 820285007}
 --- !u!1001 &1078975922
 PrefabInstance:
   m_ObjectHideFlags: 0
