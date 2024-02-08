@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("현재 속도: " + currentSpeed);
+        //Debug.Log("현재 속도: " + currentSpeed);
     }
 
     private void FixedUpdate()

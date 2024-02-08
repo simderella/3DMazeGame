@@ -7,6 +7,7 @@ public class MagicPortalintutorial : MonoBehaviour
     private GameObject player;
     private Transform target;
     public Transform StartPosition;
+    public GameObject TutorialMaze;
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -21,7 +22,9 @@ public class MagicPortalintutorial : MonoBehaviour
         {
             UIManager.Instance.intutorial = false;
             target.position = StartPosition.position;
+            gameManager.Instance.GameStart();
 
+            TutorialMaze.SetActive(false);
 
         }
 

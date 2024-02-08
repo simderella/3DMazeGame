@@ -113,7 +113,7 @@ public class EnemyBaseState : IState
     //
     protected bool IsInChaseRange()
     {
-        //if (stateMachine.Target.IsDead) { return false; }   
+        if (stateMachine.Target.IsDead) { return false; }   
 
         float playerDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
 
