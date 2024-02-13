@@ -7,17 +7,32 @@ using UnityEngine.UI;
 public class SetValure : MonoBehaviour
 {
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider masterSlider;
+    [SerializeField] private Slider bgmSlider;
+    [SerializeField] private Slider effectSlider;
 
     private void Awake()
     {
-        slider.onValueChanged.AddListener(SetLevel);
+        masterSlider.onValueChanged.AddListener(SetMaster);
+        bgmSlider.onValueChanged.AddListener(SetBgm);
+        effectSlider.onValueChanged.AddListener(SetEffect);
     }
 
-    public void SetLevel(float sliderVal)
+    public void SetMaster(float slider)
     {
-        mixer.SetFloat("BackGroundVol", Mathf.Log10(sliderVal) * 20);
+        mixer.SetFloat("Master", Mathf.Log10(slider) * 20);
        // SoundManager를 통해 배경음과 효과음 볼륨 설정
-        //SoundManager.Instance.SetMusicVolume(sliderVal);
+    }
+
+    public void SetBgm(float slider)
+    {
+        mixer.SetFloat("BGM", Mathf.Log10(slider) * 20);
+        // SoundManager를 통해 배경음과 효과음 볼륨 설정
+    }
+
+    public void SetEffect(float slider)
+    {
+        mixer.SetFloat("Effect", Mathf.Log10(slider) * 20);
+        // SoundManager를 통해 배경음과 효과음 볼륨 설정
     }
 }
