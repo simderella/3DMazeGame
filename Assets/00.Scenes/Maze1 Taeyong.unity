@@ -20905,9 +20905,9 @@ MonoBehaviour:
   musicSounds: []
   sfxSounds:
   - name: FootstepSound
-    clip: {fileID: 8300000, guid: b241c69de0fb7bc45bf013005d980d35, type: 3}
+    clip: {fileID: 8300000, guid: 0cbc0a18a330da7418aa1a17dbb4a91c, type: 3}
   - name: RunningSound
-    clip: {fileID: 8300000, guid: 4c4a0c8ea4b9ee243bb7d53e51f8afad, type: 3}
+    clip: {fileID: 8300000, guid: c1a2dbd99e150a348a7af27a8a0e6d60, type: 3}
   - name: ItemUseSound
     clip: {fileID: 8300000, guid: 2c81c5273a72ab5429790cd96a994c0f, type: 3}
   - name: PopupSound
@@ -21657,7 +21657,7 @@ MonoBehaviour:
   baseSpeed: 15
   runSpeed: 8
   currentSpeed: 30
-  jumpForce: 100
+  jumpForce: 200
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 55
@@ -22070,7 +22070,7 @@ MonoBehaviour:
   currentStamina: 0
   staminaDecreaseRate: 20
   staminaRecoveryRate: 10
-  walkSpeed: 4
+  walkSpeed: 20
   runSpeed: 40
   staminaImage: {fileID: 406125642}
 --- !u!43 &1631971335

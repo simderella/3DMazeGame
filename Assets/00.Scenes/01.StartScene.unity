@@ -1977,7 +1977,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uCE90\uB9AD\uD130 \uC774\uB3D9 : W, A, S, D\n\uB2EC\uB9AC\uAE30 : SHIFT\n\uC810\uD504
     : SPACE\n\uBA54\uB274 : P\n\uC544\uC774\uD15C \uC0AC\uC6A9 : E\n\uC544\uC774\uD15C
-    \uC0AD\uC81C : R"
+    \uC0AD\uC81C : Q"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0660e5bb00a45c479933d5db2f8ccdc, type: 2}
   m_sharedMaterial: {fileID: 4837291656666760155, guid: f0660e5bb00a45c479933d5db2f8ccdc, type: 2}
