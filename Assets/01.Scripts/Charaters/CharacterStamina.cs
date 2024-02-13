@@ -32,6 +32,8 @@ public class CharacterStamina : MonoBehaviour
 
     void Update()
     {
+        bool isRunningButtonPressed = Input.GetKey(KeyCode.LeftShift) || Mouse.current.rightButton.isPressed;
+
         // 달리기 중이면 스태미나 감소
         // 달리기 중이 아니면 스태미나 회복
         if ((Input.GetKey(KeyCode.LeftShift) || Mouse.current.rightButton.isPressed) && currentStamina > 0)
@@ -39,7 +41,9 @@ public class CharacterStamina : MonoBehaviour
             //달리는 중.
             isRunning = true;
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
-            if (!isRunningPlaying) // 달리는 소리 재생 여부 확인
+
+            //달리는 소리 재생
+            if (!isRunningPlaying)
             {
                 soundManager.PlaySFX("RunningSound");
                 isRunningPlaying = true;
@@ -50,8 +54,15 @@ public class CharacterStamina : MonoBehaviour
         else
         {
             isRunning = false;
-            isRunningPlaying = false; // 달리는 소리 재생 중지
             currentStamina += staminaRecoveryRate * Time.deltaTime;
+
+            // 오른쪽 마우스 버튼을 뗄 때
+            if (currentStamina <= 0 && isRunningPlaying || !isRunningButtonPressed && isRunningPlaying)
+            {
+                soundManager.StopRunningSFX(); // 달리기 소리 중지
+                soundManager.PlaySFX("FootstepSound"); // 걷는 소리로 변경
+                isRunningPlaying = false;
+            }
         }
 
 
