@@ -16,12 +16,17 @@ public class CharacterStamina : MonoBehaviour
     public Image staminaImage;  // 연결할 UI Image 요소
 
     private bool isRunning = false;
+    private bool isFootstepPlaying = false; // 걷는 소리 재생 여부를 추적하기 위한 변수 추가
+    private bool isRunningPlaying = false; // 달리는 소리 재생 여부를 추적하기 위한 변수 추가
     private PlayerController playerController;
+
+    private SoundManager soundManager; // 사운드 관련 변수 추가
 
     void Start()
     {
         currentStamina = maxStamina;
         playerController = GetComponent<PlayerController>();
+        soundManager = SoundManager.Instance; // SoundManager 인스턴스 가져오기
         UpdateStaminaUI();
     }
 
@@ -34,7 +39,22 @@ public class CharacterStamina : MonoBehaviour
             //달리는 중.
             isRunning = true;
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
+            if (!isRunningPlaying) // 달리는 소리 재생 여부 확인
+            {
+                soundManager.PlaySFX("RunningSound");
+                isRunningPlaying = true;
+            }
+
+            //soundManager.PlaySFX("RunningSound");   // 달리기 시작 시 소리 재생
         }
+        else
+        {
+            isRunning = false;
+            isRunningPlaying = false; // 달리는 소리 재생 중지
+            currentStamina += staminaRecoveryRate * Time.deltaTime;
+        }
+
+
         // 스태미나가 소진되면 걷기로 바뀜
         if (currentStamina <= 0)
         {
@@ -60,12 +80,24 @@ public class CharacterStamina : MonoBehaviour
         // UI에 스태미나 표시
         UpdateStaminaUI();
 
+
     }
 
     void UpdateStaminaUI()
     {
         // UI Image 요소의 fillAmount 속성을 조절하여 스태미나 표시
         staminaImage.fillAmount = currentStamina / maxStamina;
+
+
+        if (isRunning && currentStamina > 0)
+        {
+            playerController.currentSpeed = runSpeed;
+        }
+        else
+        {
+            playerController.currentSpeed = walkSpeed;
+        }
+
 
         // isRunning 변수를 사용하여 캐릭터의 달리기 여부를 직접 제어
         if ((isRunning || Input.GetKey(KeyCode.LeftShift) || Mouse.current.rightButton.isPressed) && currentStamina > 0)
@@ -77,9 +109,19 @@ public class CharacterStamina : MonoBehaviour
             // 스태미나 감소
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
 
+            if (!isRunningPlaying) // 달리는 소리 재생 여부 
+            {
+                soundManager.PlaySFX("RunningSound");
+                isRunningPlaying = true;
+            }
+
+            
+
+
             // 스태미나가 0이 되면 무조건 걷기로 전환
             if (currentStamina <= 0)
             {
+
                 isRunning = false;
             }
         }
