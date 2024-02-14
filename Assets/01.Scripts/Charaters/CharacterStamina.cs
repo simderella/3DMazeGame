@@ -114,8 +114,8 @@ public class CharacterStamina : MonoBehaviour
         if ((isRunning || Input.GetKey(KeyCode.LeftShift) || Mouse.current.rightButton.isPressed) && currentStamina > 0)
         {
             // 달리기 중의 이동 코드 추가
-            float speed = runSpeed;
-            playerController.currentSpeed = speed;
+            //float speed = runSpeed;
+            playerController.currentSpeed = runSpeed;
 
             // 스태미나 감소
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
