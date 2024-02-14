@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public string goodjob ;
     public bool intutorial;
     public TMP_Text description;
+    [SerializeField] GameObject gameOverPopup;
+
     public static UIManager Instance
     {
         get
@@ -42,6 +44,7 @@ public class UIManager : MonoBehaviour
     {
         goodjob = "포탈이 활성화되었습니다.";
         intutorial = true;
+        gameOverPopup.SetActive(false);
     }
 
     private void Update()
@@ -80,5 +83,9 @@ public class UIManager : MonoBehaviour
         textinstage5.text = "포탈을 활성화시키기 위한 남은 에너지볼의 개수 :" + remainswitch.ToString();
     }
 
+    public void GameOverPopup()
+    {
+        gameOverPopup.SetActive(true);
+    }
 
 }
