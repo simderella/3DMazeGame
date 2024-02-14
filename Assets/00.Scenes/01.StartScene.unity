@@ -1428,7 +1428,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: f19ce4b2bc02a154688f278a9cb21200, type: 2}
-  slider: {fileID: 1371332529}
+  masterSlider: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  effectSlider: {fileID: 0}
 --- !u!4 &558034259
 Transform:
   m_ObjectHideFlags: 0
@@ -4090,7 +4092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205.5, y: -181.6}
+  m_AnchoredPosition: {x: 355, y: -267}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301973778
