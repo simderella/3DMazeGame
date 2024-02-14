@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 
 [CreateAssetMenu(menuName = "Item/gun")]
@@ -32,11 +33,21 @@ public class GunClass : ItemClass
     }
     public override void Use()
     {
+        Transform GunHolder = GameObject.Find("GunHolder").transform;
+        if (GunHolder.childCount == 0)
+        {
+            Equip();
+        }
         gun = item.GetComponent<Gun>();
         gun.Reload();
     }
     public override void Shoot()
     {
+        Transform GunHolder = GameObject.Find("GunHolder").transform;
+        if (GunHolder.childCount == 0)
+        {
+            Equip();
+        }
         gun = item.GetComponent<Gun>();
         gun.shooting = true;
     }

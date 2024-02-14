@@ -18,7 +18,7 @@ MonoBehaviour:
   ItemObject: {fileID: 101050, guid: 2c3055a11cb8f8540a181490a4c34b7c, type: 3}
   item: {fileID: 0}
   description: "\uC0F7\uAC74 :  E\uD0A4\uB97C \uB20C\uB7EC \uC7AC\uC7A5\uC804\uD558\uC138\uC694"
-  damage: 6
+  damage: 12
   timeBetweenShooting: 0.64
   spread: 0.06
   range: 100

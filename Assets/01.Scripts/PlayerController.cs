@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public float baseSpeed = 4f; // 기본 속도
     public float runSpeed = 8f;  // 달리는 속도
     public float currentSpeed;  // 현재 속도
+    public CharacterHealth CharacterHealth { get; private set; }
+
 
 
     [Header("Movement")]
@@ -40,12 +42,16 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         soundManager = SoundManager.Instance;
+        CharacterHealth = GetComponent<CharacterHealth>();
+
     }
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         currentSpeed = baseSpeed; // 초기화 시 항상 기본 속도로 설정
+        CharacterHealth.PlayerDie += GameOver;
+
     }
 
     public void ResetSpeed()  
@@ -185,5 +191,12 @@ public class PlayerController : MonoBehaviour
         canLook = !toggle;
     }
 
- 
+    void GameOver()
+    {
+        Cursor.lockState= CursorLockMode.None;
+        Cursor.visible = true;
+        UIManager.Instance.GameOverPopup();
+        gameManager.Instance.goToStartScene = true;
+    }
+
 }
