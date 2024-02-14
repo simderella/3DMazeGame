@@ -32,5 +32,6 @@ public class StoneClass : ItemClass
         stone.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;//닿았을 때 먹지 않도록 한다
         //stone.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//크기를 조절한다
         stone.GetComponent<Rigidbody>().useGravity = true;//중력을 켠다
+        itemUsed = true;
     }
 }

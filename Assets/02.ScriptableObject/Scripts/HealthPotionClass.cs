@@ -26,5 +26,6 @@ public class HealthPotionClass : ItemClass
 
         CharacterHealth characterhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
         characterhealth.PotionHeal(healAmount);
+        itemUsed = true;
     }
 }

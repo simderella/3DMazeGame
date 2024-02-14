@@ -26,5 +26,6 @@ public class CompassClass : ItemClass
         {
             compassScript.useCompass = true;
         }
+        itemUsed = true;
     }
 }
