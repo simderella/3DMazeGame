@@ -18,11 +18,11 @@ MonoBehaviour:
   ItemObject: {fileID: 118234, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
   item: {fileID: 0}
   description: "\uAE30\uAD00\uCD1D  :  E\uD0A4\uB97C \uB20C\uB7EC \uC7AC\uC7A5\uC804\uD558\uC138\uC694"
-  damage: 3
-  timeBetweenShooting: 0.1
+  damage: 20
+  timeBetweenShooting: 0.04
   spread: 0.1
   range: 100
   reloadtime: 3
-  timeBetweenShots: 0.1
+  timeBetweenShots: 0.01
   magazineSize: 100
   BulletPerTaps: 1

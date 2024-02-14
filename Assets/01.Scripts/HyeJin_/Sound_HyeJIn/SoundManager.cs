@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
     private AudioClip previousClip; // 이전 배경 음악을 저장하기 위한 변수
 
     private bool isFootstepPlaying = false; // 걷는 소리가 현재 재생 중인지 여부
-    private bool isRunningPlaying = false;
+    private bool isRunningPlaying = false;  // 달리는 소리가 현재 재생 중인지 여부
 
 
     private void Awake()
@@ -88,7 +88,20 @@ public class SoundManager : MonoBehaviour
                 sfxSource.PlayOneShot(sfx.clip);
                 if (name == "FootstepSound") // 걷는 소리가 재생 중인지 확인하고 상태 업데이트
                 {
+                    sfxSource.PlayOneShot(sfx.clip);
                     isFootstepPlaying = true;
+                }
+                else if (name == "RunningSound")
+                {
+                    if (!isRunningPlaying)  // 이전에 달리는 소리가 재생 중이 아닌 경우에만 재생
+                    {
+                        sfxSource.PlayOneShot(sfx.clip);
+                        isRunningPlaying = true; // 상태 변수 업데이트
+                    }
+                }
+                else
+                {
+                    sfxSource.PlayOneShot(sfx.clip);
                 }
                 return;
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public float detectionRange = 10f; //감지 범위.
+    public float detectionRange = 2f; //감지 범위.
 
     private Transform player;
     private SoundManager soundManager;

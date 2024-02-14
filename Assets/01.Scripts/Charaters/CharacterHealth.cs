@@ -11,6 +11,8 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     private float health;
     public event Action OnDie;
+    public event Action PlayerDie;
+
 
     [SerializeField] private Image healthBarImage; // 이미지 컴포넌트를 저장할 변수
     public bool IsDead => health == 0;
@@ -34,7 +36,10 @@ public class CharacterHealth : MonoBehaviour
         health = Mathf.Max(health - damage, 0);
         UpdateHealthBar();
         if (health == 0)
+        {
             OnDie?.Invoke();
+            PlayerDie?.Invoke();
+        }
 
 
 

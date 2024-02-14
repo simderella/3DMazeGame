@@ -183,4 +183,15 @@ public class SelectDisplay : MonoBehaviour
             UIManager.Instance.description.text = ItemManager.Instance.items[index].GetItem().description;//설명란의 설명은 ItemClass에 있는 설명이 된다.
         }
     }
+
+    public void OnUnEquip(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
+            {
+                ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();
+            }
+        }
+    }
 }
