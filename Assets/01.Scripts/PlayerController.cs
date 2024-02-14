@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private SoundManager soundManager;
 
-    public float baseSpeed = 4f; // 기본 속도
+    public float baseSpeed = 5f; // 기본 속도
     public float runSpeed = 8f;  // 달리는 속도
     public float currentSpeed;  // 현재 속도
     public CharacterHealth CharacterHealth { get; private set; }
