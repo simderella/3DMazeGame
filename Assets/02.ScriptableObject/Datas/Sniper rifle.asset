@@ -17,11 +17,12 @@ MonoBehaviour:
   isStackable: 0
   ItemObject: {fileID: 134812, guid: 3c81b162a1af44348b8994f7040514d4, type: 3}
   item: {fileID: 0}
+  itemUsed: 0
   description: "\uC800\uACA9\uC18C\uCD1D  :  E\uD0A4\uB97C \uB20C\uB7EC \uC7AC\uC7A5\uC804\uD558\uC138\uC694"
   damage: 100
   timeBetweenShooting: 1
   spread: 0
-  range: 1000
+  range: 100
   reloadtime: 2
   timeBetweenShots: 1
   magazineSize: 5
