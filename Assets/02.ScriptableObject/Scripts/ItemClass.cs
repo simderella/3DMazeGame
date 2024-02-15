@@ -12,6 +12,7 @@ public class ItemClass : ScriptableObject
     public bool isStackable;
     public GameObject ItemObject;
     [HideInInspector]public GameObject item;
+    [HideInInspector] public bool itemUsed;
     [Multiline]
     public string description;
 

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private SoundManager soundManager;
 
-    public float baseSpeed = 4f; // 기본 속도
+    public float baseSpeed = 5f; // 기본 속도
     public float runSpeed = 8f;  // 달리는 속도
     public float currentSpeed;  // 현재 속도
     public CharacterHealth CharacterHealth { get; private set; }
@@ -114,20 +114,13 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
+            // 이동 입력이 시작될 때 이전에 재생 중인 걷는 소리 중지. 걷는 소리 중첩되지 않도록. 발소리 겹치지 않게.
+            soundManager.StopFootstepSFX();
+
             curMovementInput = context.ReadValue<Vector2>();
             animator.SetBool("Walk", true);
 
             soundManager.PlaySFX("FootstepSound"); // 걷는 소리만 재생
-
-
-            //if (currentSpeed <= baseSpeed)
-            //{
-            //    soundManager.PlaySFX("FootstepSound"); // 걷는 소리 재생
-            //}
-            //else // 달리는 속도인 경우
-            //{
-            //    soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
-            //}
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
@@ -135,8 +128,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Walk", false);
 
             soundManager.StopFootstepSFX(); // 이동이 멈추면 걷는 소리 중지
-            //soundManager.StopRunningSFX(); // 이동이 멈추면 달리는 소리 중지
-        }        
+        }
     }
     public void OnJumpInput(InputAction.CallbackContext context)
     {
