@@ -2944,7 +2944,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76676
+  m_Name: pb_Mesh45040
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6971,7 +6971,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76692
+  m_Name: pb_Mesh45056
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -13680,7 +13680,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh75430
+  m_Name: pb_Mesh43790
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -14120,7 +14120,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76332
+  m_Name: pb_Mesh44696
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -21029,7 +21029,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh75712
+  m_Name: pb_Mesh44072
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -22094,10 +22094,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 100
   currentStamina: 0
-  staminaDecreaseRate: 5
+  staminaDecreaseRate: 15
   staminaRecoveryRate: 10
-  walkSpeed: 20
-  runSpeed: 40
+  walkSpeed: 5
+  runSpeed: 8
   staminaImage: {fileID: 406125642}
 --- !u!43 &1631971335
 Mesh:
@@ -28354,7 +28354,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76522
+  m_Name: pb_Mesh44886
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
