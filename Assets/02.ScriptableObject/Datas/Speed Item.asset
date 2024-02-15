@@ -17,6 +17,7 @@ MonoBehaviour:
   isStackable: 1
   ItemObject: {fileID: 4242682089843019601, guid: c12febc7c57a9174fb1d49e2505b4775, type: 3}
   item: {fileID: 0}
-  description: "15\uCD08 \uB3D9\uC548 \uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0A8\uB2E4.\n"
-  speedBoostAmount: 10
-  duration: 15
+  itemUsed: 1
+  description: "5\uCD08 \uB3D9\uC548 \uC18D\uB3C4\uB97C \uC99D\uAC00\uC2DC\uD0A8\uB2E4.\n"
+  speedBoostAmount: 5
+  duration: 5

@@ -28,10 +28,15 @@ public class SpeedItemClass : ItemClass
 
         // 플레이어 컨트롤러를 찾아서 스피드 포션을 적용
         CharacterStamina characterStamina = GameObject.FindObjectOfType<CharacterStamina>();
-        if (characterStamina != null)
+        if (characterStamina != null && characterStamina.boostOn == false)
         {
             characterStamina.ApplySpeedPotion(speedBoostAmount, duration);
             Debug.Log("스피드 포션을 사용했다.");
+            itemUsed = true;
+        }
+        else
+        {
+            itemUsed = false;
         }
     }
 }
