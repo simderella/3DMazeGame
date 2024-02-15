@@ -85,6 +85,7 @@ public class Enemy : MonoBehaviour
     }
     void OnDie()
     {
+        soundManager.RestoreBackgroundMusic();
         Animator.SetTrigger("Die");
         enabled = false;
     }
