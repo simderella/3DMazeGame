@@ -103,10 +103,10 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 0
-  text: {fileID: 0}
   bulletHoleGraphic: {fileID: 0}
   muzzleFlash: {fileID: 0}
   fire_Sound: {fileID: 0}
+  reload_Sound: {fileID: 0}
 --- !u!82 &-3922934589940115000
 AudioSource:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ AudioSource:
   m_GameObject: {fileID: 191150}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2055552682099122414, guid: f19ce4b2bc02a154688f278a9cb21200, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
