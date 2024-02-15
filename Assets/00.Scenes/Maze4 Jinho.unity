@@ -5947,7 +5947,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh63994
+  m_Name: pb_Mesh39214
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10761,11 +10761,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 0.9528302, g: 0.8716932, b: 0.7236116, a: 1}
+  m_Intensity: 2
   m_Range: 36.456112
-  m_SpotAngle: 43
-  m_InnerSpotAngle: 19.040314
+  m_SpotAngle: 50
+  m_InnerSpotAngle: 5
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -14356,7 +14356,7 @@ AudioSource:
   m_GameObject: {fileID: 397331255}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 2055552682099122414, guid: f19ce4b2bc02a154688f278a9cb21200, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 886488661acf6b24998d26ffb86f09d4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -14550,7 +14550,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh62756
+  m_Name: pb_Mesh37976
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -26202,7 +26202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 35590e4014a79cd489e35729582a393e, type: 2}
+  - {fileID: 2100000, guid: 97bc790d31a703e4f93d2e8c47b7594f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34293,7 +34293,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh62386
+  m_Name: pb_Mesh37606
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -37890,7 +37890,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 35590e4014a79cd489e35729582a393e, type: 2}
+  - {fileID: 2100000, guid: 97bc790d31a703e4f93d2e8c47b7594f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -42830,7 +42830,7 @@ MonoBehaviour:
   maxStamina: 100
   currentStamina: 0
   staminaDecreaseRate: 5
-  staminaRecoveryRate: 10
+  staminaRecoveryRate: 2
   walkSpeed: 5
   runSpeed: 8
   staminaImage: {fileID: 1558576379}
@@ -48012,7 +48012,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh62046
+  m_Name: pb_Mesh37266
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -54552,7 +54552,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh63144
+  m_Name: pb_Mesh38364
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -58042,7 +58042,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh63952
+  m_Name: pb_Mesh39172
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
