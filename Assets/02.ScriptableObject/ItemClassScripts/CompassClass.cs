@@ -38,11 +38,12 @@ public class CompassClass : ItemClass
         {
             compassScript.useCompass = true;
             itemUsed = true;
-
+            compassUsed = true;
         }
         else
         {
             itemUsed = false;
+            compassUsed = false;
         }
     }
 }

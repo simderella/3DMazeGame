@@ -8,6 +8,7 @@ public class StoneClass : ItemClass
 {
     public override void Equip()
     {
+        UnEquip();
         if (ItemObject != null)
         {
             

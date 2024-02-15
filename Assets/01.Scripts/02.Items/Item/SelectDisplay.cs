@@ -114,7 +114,11 @@ public class SelectDisplay : MonoBehaviour
             {
                 ItemManager.Instance.items[CurrentIndex].GetItem().Equip();
                 ItemManager.Instance.items[CurrentIndex].GetItem().Use();
-                //ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());
+                if (ItemManager.Instance.items[CurrentIndex].GetItem().itemUsed == true)
+                {
+                    ItemManager.Instance.Remove(ItemManager.Instance.items[CurrentIndex].GetItem());//현재 선택한 슬롯의 아이템을 소모함
+
+                }
             }
         }
     }
@@ -151,7 +155,7 @@ public class SelectDisplay : MonoBehaviour
     }
 
     private void SetIndex(int index)
-    { 
+    {
         if (ItemManager.Instance.slots[index].GetComponent<Slot>().item != null)//선택한 index번째 슬롯에 Slot컴포넌트에 아이템이 있다면
         {
             if (CurrentIndex != index)//선택한 index가 이전 인덱스와 같지 않다면
@@ -165,6 +169,7 @@ public class SelectDisplay : MonoBehaviour
                 }
                 else//CurrentIndex번째 슬롯에 Slot컴포넌트에 아이템이 없다면 이전 아이템의 하이라이트를 끄거나 장착 해제하지 않음
                 {
+                    ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlightfalse();
                     CurrentIndex = index;
                     ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().Togglehighlighttrue();
                 }
@@ -192,9 +197,21 @@ public class SelectDisplay : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)//현재 선택한 슬롯의 아이템이 있을때
+            Transform GunHolder = GameObject.Find("GunHolder").transform;//ItemHolder라는 게임 오브젝트를 가지고 옴
+            if (GunHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
             {
-                ItemManager.Instance.items[CurrentIndex].GetItem().UnEquip();
+                foreach (Transform child in GunHolder)
+                {
+                    Destroy(child.gameObject); //모든 자식 오브젝트 제거
+                }
+            }
+            Transform itemHolder = GameObject.Find("ItemHolder").transform;//ItemHolder라는 게임 오브젝트를 가지고 옴
+            if (itemHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
+            {
+                foreach (Transform child in itemHolder)
+                {
+                    Destroy(child.gameObject); //모든 자식 오브젝트 제거
+                }
             }
         }
     }

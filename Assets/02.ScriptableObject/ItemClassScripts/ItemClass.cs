@@ -13,12 +13,14 @@ public class ItemClass : ScriptableObject
     public GameObject ItemObject;
     [HideInInspector]public GameObject item;
     [HideInInspector] public bool itemUsed;
+    [HideInInspector] public bool compassUsed;
     [Multiline]
     public string description;
 
 
     public virtual void Equip()
     {
+        UnEquip();
         if(ItemObject != null)
         {
             Transform itemHolder = GameObject.Find("ItemHolder").transform; //Hierarchy에 있는 ItemHolder라는 transform을 찾아온다.
@@ -41,6 +43,14 @@ public class ItemClass : ScriptableObject
         if (itemHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
         {
             foreach (Transform child in itemHolder)
+            {
+                Destroy(child.gameObject); //모든 자식 오브젝트 제거
+            }
+        }
+        Transform GunHolder = GameObject.Find("GunHolder").transform;//ItemHolder라는 게임 오브젝트를 가지고 옴
+        if (GunHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
+        {
+            foreach (Transform child in GunHolder)
             {
                 Destroy(child.gameObject); //모든 자식 오브젝트 제거
             }

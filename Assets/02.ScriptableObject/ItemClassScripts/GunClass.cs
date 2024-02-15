@@ -14,6 +14,7 @@ public class GunClass : ItemClass
 
     public override void Equip()
     {
+        UnEquip();
         Transform GunHolder = GameObject.Find("GunHolder").transform; //Hierarchy에 있는 ItemHolder라는 transform을 찾아온다.
         item = GameObject.Instantiate(ItemObject, GunHolder.position, GunHolder.rotation); //ItemObject를 ItemHolder위치에 rotation값은 0으로 생성한다.
         item.transform.localScale = new Vector3(3,3,3);
@@ -26,6 +27,14 @@ public class GunClass : ItemClass
         if (GunHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
         {
             foreach (Transform child in GunHolder)
+            {
+                Destroy(child.gameObject); //모든 자식 오브젝트 제거
+            }
+        }
+        Transform itemHolder = GameObject.Find("ItemHolder").transform;//ItemHolder라는 게임 오브젝트를 가지고 옴
+        if (itemHolder.childCount > 0)//ItemHolder의 자식 오브젝트가 있을때
+        {
+            foreach (Transform child in itemHolder)
             {
                 Destroy(child.gameObject); //모든 자식 오브젝트 제거
             }

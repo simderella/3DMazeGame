@@ -11,6 +11,7 @@ public class SpeedItemClass : ItemClass
 
     public override void Equip()
     {
+        UnEquip();
         if (ItemObject != null)
         {
 

@@ -9,6 +9,7 @@ public class HealthPotionClass : ItemClass
     public int healAmount;
     public override void Equip()
     {
+        UnEquip();
         if (ItemObject != null)
         {
 
