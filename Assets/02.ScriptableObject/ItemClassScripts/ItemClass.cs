@@ -31,6 +31,7 @@ public class ItemClass : ScriptableObject
             rb.constraints = RigidbodyConstraints.FreezePosition;
             item.transform.parent = itemHolder.transform;//item을 ItemHolder의 자식으로 생성한다.
             item.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);//생성된 item의 크기를 0.2로 줄인다.
+
         }
     }
 
