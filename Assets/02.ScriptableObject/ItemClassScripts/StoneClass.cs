@@ -8,6 +8,7 @@ public class StoneClass : ItemClass
 {
     public override void Equip()
     {
+        UnEquip();
         if (ItemObject != null)
         {
             
@@ -18,8 +19,8 @@ public class StoneClass : ItemClass
             Rigidbody rb = item.GetComponent<Rigidbody>();
             rb.useGravity = false;//중력을 끈다
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;//위치 이동과 회전을 막는다/
-            item.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//생성된 item의 크기를 0.2로 줄인다.
             item.transform.parent = itemHolder.transform;//item을 ItemHolder의 자식으로 생성한다.
+            item.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//생성된 item의 크기를 0.2로 줄인다.
         }
     }
     public override void Use()
