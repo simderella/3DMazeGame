@@ -56,6 +56,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   useCompass: 0
   activeTime: 15
+  activatingCompass: 0
 --- !u!54 &216457554094551607
 Rigidbody:
   m_ObjectHideFlags: 0
