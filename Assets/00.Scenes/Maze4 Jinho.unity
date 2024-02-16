@@ -5577,8 +5577,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "E\uD0A4\uB97C \uB20C\uB7EC \uC544\uC774\uD15C \uC0AC\uC6A9 \nR\uD0A4\uB97C
-    \uB20C\uB7EC \uC544\uC774\uD15C \uD30C\uAD34"
+  m_text: "E\uD0A4\uB97C \uB20C\uB7EC \uC544\uC774\uD15C \uC0AC\uC6A9 \nQ\uD0A4\uB97C
+    \uB20C\uB7EC \uC544\uC774\uD15C \uD30C\uAD34\nR\uD0A4\uB97C \uB20C\uB7EC \uC544\uC774\uD15C
+    \uC218\uB0A9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0660e5bb00a45c479933d5db2f8ccdc, type: 2}
   m_sharedMaterial: {fileID: 4837291656666760155, guid: f0660e5bb00a45c479933d5db2f8ccdc, type: 2}
@@ -43355,7 +43356,19 @@ MonoBehaviour:
     m_ActionId: be945a11-811c-4329-8606-318e4691b2fe
     m_ActionName: Player/Shoot[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1122077669}
+        m_TargetAssemblyTypeName: SelectDisplay, Assembly-CSharp
+        m_MethodName: OnUnEquip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: bb9e77df-5bce-4699-ad87-ec28e87b83e1
     m_ActionName: Player/UnEquip[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
