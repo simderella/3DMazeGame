@@ -12,6 +12,7 @@ public class Compass : MonoBehaviour
     public bool useCompass;
     private float time;
     public float activeTime;
+    public bool activatingCompass;
 
 
     private GameObject compassArrowInstance; //나침반 화살표 인스턴스
@@ -39,12 +40,13 @@ public class Compass : MonoBehaviour
                 if (time < activeTime)//시간이 ActiveTime을 넘지 못했다면
                 {
                     lineRenderer.enabled = true;//LineRenderer를 켜고
-
+                    activatingCompass = true;
                     lineRenderer.SetPosition(0, playerTransform.position);//LineRenderer의 첫번째 점의 위치는 playerTransform의 position이고
                     lineRenderer.SetPosition(1, exitTransform.position);//LineRenderer의 두번째 점의 위치는 exitTransform의 position이다
                 }
                 else
                 {
+                    activatingCompass=false;
                     Destroy(this.gameObject);//시간이 ActiveTime을 넘었다면 이 아이템을 파괴한다.
                 }
             }

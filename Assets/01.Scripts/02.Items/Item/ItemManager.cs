@@ -149,7 +149,14 @@ public class ItemManager : MonoBehaviour
                     if (slot.GetItem() == item)//슬롯의 아이템이 뺄 아이템과 같다면
                     {
                         slotToRemove = slot;
-                        slot.GetItem().UnEquip();//장착을 해제한다
+                        if (!slot.GetItem().compassUsed)
+                        {
+                            slot.GetItem().UnEquip();//장착을 해제한다
+                        }
+                        else
+                        {
+                            slot.GetItem().compassUsed = false;
+                        }
                         break;
                     }
                 }

@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState= CursorLockMode.None;
         Cursor.visible = true;
         UIManager.Instance.GameOverPopup();
-        gameManager.Instance.goToStartScene = true;
+        //gameManager.Instance.goToStartScene = true;
     }
 
 }
