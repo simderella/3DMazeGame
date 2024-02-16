@@ -25,6 +25,8 @@ public class HealthPotionClass : ItemClass
         // 아이템 사용 시 소리 재생
         SoundManager.Instance.PlayItemUseSound();
 
+        Equip();
+
         CharacterHealth characterhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
         characterhealth.PotionHeal(healAmount);
         itemUsed = true;

@@ -27,6 +27,7 @@ public class SpeedItemClass : ItemClass
         // 아이템 사용 시 소리 재생
         SoundManager.Instance.PlayItemUseSound();
 
+        Equip();
         // 플레이어 컨트롤러를 찾아서 스피드 포션을 적용
         CharacterStamina characterStamina = GameObject.FindObjectOfType<CharacterStamina>();
         if (characterStamina != null && characterStamina.boostOn == false)
