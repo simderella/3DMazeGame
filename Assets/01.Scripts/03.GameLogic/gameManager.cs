@@ -34,7 +34,10 @@ public class gameManager : MonoBehaviour
             return _instance;
         }
     }
-
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
     private void Awake()
     {
         if (_instance == null)
@@ -68,6 +71,8 @@ public class gameManager : MonoBehaviour
         {
             StartCoroutine("GoToStartScene");
         }
+
+        Application.targetFrameRate = 60;
     }
     
     IEnumerator GoToStartScene()
