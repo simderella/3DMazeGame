@@ -71,6 +71,8 @@ public class gameManager : MonoBehaviour
         {
             StartCoroutine("GoToStartScene");
         }
+
+        Application.targetFrameRate = 60;
     }
     
     IEnumerator GoToStartScene()
