@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.PackageManager;
 using Unity.VisualScripting;
 using System.IO.Pipes;
 
@@ -78,15 +77,16 @@ public class Gun : MonoBehaviour
 
         float x = Random.Range(-gunClass.spread, gunClass.spread);
         float y = Random.Range(-gunClass.spread, gunClass.spread);
+        float z = Random.Range(-gunClass.spread, gunClass.spread);
 
-        Vector3 dir = fpsCam.transform.forward + new Vector3(x, y, 0);
 
+        Vector3 dir = fpsCam.transform.forward + new Vector3(x, y, z);
 
 
         if (Physics.Raycast(fpsCam.transform.position, dir, out rayHit, gunClass.range, whatIsEnemy))
         {
             var clone = Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.LookRotation(rayHit.normal));
-            Destroy(clone, 2f);
+            Destroy(clone, 4f);
 
             if (rayHit.collider.CompareTag("Enemy")) 
             {

@@ -86,6 +86,7 @@ public class UIManager : MonoBehaviour
     public void GameOverPopup()
     {
         gameOverPopup.SetActive(true);
+        Time.timeScale = 0;
     }
 
 }

@@ -5,8 +5,6 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class SelectDisplay : MonoBehaviour
 {

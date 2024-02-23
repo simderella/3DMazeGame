@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEditorInternal;
 
 public class gameManager : MonoBehaviour
 {
@@ -36,7 +35,7 @@ public class gameManager : MonoBehaviour
     }
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 30;
     }
     private void Awake()
     {
@@ -71,6 +70,8 @@ public class gameManager : MonoBehaviour
         {
             StartCoroutine("GoToStartScene");
         }
+
+        Application.targetFrameRate = 60;
     }
     
     IEnumerator GoToStartScene()
