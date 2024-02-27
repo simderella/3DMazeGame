@@ -27,7 +27,14 @@ public class HealthPotionClass : ItemClass
         Equip();
 
         CharacterHealth characterhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterHealth>();
-        characterhealth.PotionHeal(healAmount);
-        itemUsed = true;
+        if (characterhealth.health != characterhealth.maxHealth)
+        {
+            characterhealth.PotionHeal(healAmount);
+            itemUsed = true;
+        }
+        else
+        {
+            itemUsed = false;
+        }
     }
 }
