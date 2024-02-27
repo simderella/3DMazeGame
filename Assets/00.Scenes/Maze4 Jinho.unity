@@ -30754,7 +30754,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27492
+  m_Name: pb_Mesh91874
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -32388,7 +32388,7 @@ Transform:
   m_GameObject: {fileID: 891650516}
   m_LocalRotation: {x: -0, y: 0.7082129, z: -0, w: 0.70599896}
   m_LocalPosition: {x: 513.35, y: -509.3, z: -22.589996}
-  m_LocalScale: {x: 0.54885876, y: 0.516386, z: 1.0554239}
+  m_LocalScale: {x: 0.54885876, y: 0.516386, z: 0.82514274}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 242584511}
@@ -40831,6 +40831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  health: 0
   healthBarImage: {fileID: 0}
 --- !u!95 &1122077668
 Animator:
@@ -51592,8 +51593,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361741443}
   m_LocalRotation: {x: -0, y: -0.7073024, z: -0, w: 0.7069112}
-  m_LocalPosition: {x: 528.3792, y: -507.0139, z: -22.6526}
-  m_LocalScale: {x: 0.16904722, y: 5.0248303, z: 5.9411726}
+  m_LocalPosition: {x: 528.2489, y: -507.0139, z: -22.6527}
+  m_LocalScale: {x: 0.16904722, y: 5.0248303, z: 6.2019587}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 890709905}
