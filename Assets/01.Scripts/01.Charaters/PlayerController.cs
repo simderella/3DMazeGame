@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        //HandleRunningSound(); // 달리는 소리 관리 메서드 호출
     }
 
     private void LateUpdate()
@@ -113,13 +112,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            
-            
-
             curMovementInput = context.ReadValue<Vector2>();
             animator.SetBool("Walk", true);
-            
-            soundManager.StopFootstepSFX(); // 이동 입력이 시작될 때 이전에 재생 중인 걷는 소리 중지. 걷는 소리 중첩되지 않도록. 발소리 겹치지 않게.
+
+            // 이동 입력이 시작될 때 이전에 재생 중인 걷는 소리 중지. 걷는 소리 중첩되지 않도록. 발소리 겹치지 않게.
+            soundManager.StopFootstepSFX();
             soundManager.PlaySFX("FootstepSound"); // 걷는 소리만 재생
         }
         else if (context.phase == InputActionPhase.Canceled)
@@ -139,17 +136,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void HandleRunningSound()
-    //{
-    //    if (currentSpeed > baseSpeed)
-    //    {
-    //        soundManager.PlaySFX("RunningSound"); // 달리는 소리 재생
-    //    }
-    //    else
-    //    {
-    //        soundManager.StopRunningSFX(); // 달리는 소리 중지
-    //    }
-    //}
 
     private bool IsGrounded()
     {
