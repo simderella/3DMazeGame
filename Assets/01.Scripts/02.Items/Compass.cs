@@ -1,64 +1,74 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Compass : MonoBehaviour
 {
-    public Transform playerTransform; //플레이어의 Transform을 연결.
-    public Transform exitTransform; //출구의 Transform을 연결.
-    public GameObject compassArrowPrefab;   //나침반 화살표 프리팹
+    public Transform playerTransform;
+    private Transform exitTransform;
+    public GameObject compassArrowPrefab;
     public LineRenderer lineRenderer;
     public bool useCompass;
-    private float time;
     public float activeTime;
-    public bool activatingCompass;
 
+    private float timer;
 
-    private GameObject compassArrowInstance; //나침반 화살표 인스턴스
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        playerTransform = GameObject.Find("ItemHolder").transform;//ItemHolder라는 게임오브젝트를 찾아서 transform을 가져온다
-        exitTransform = GameObject.Find("End").transform;//End라는 게임오브젝트를 찾아서 transform을 가져온다
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;//LineRenderer를 잇는 점의 개수
-        lineRenderer.enabled = false;
+        playerTransform = GameObject.Find("ItemHolder")?.transform;
 
-        //나침반 화살표 인스턴스 생성
-        //compassArrowInstance = Instantiate(compassArrowPrefab, transform.position, Quaternion.identity);
+        // GameObject.Find에서 Portal red를 찾도록 수정
+        GameObject portalRed = GameObject.Find("Portal red");
+        if (portalRed != null)
+        {
+            exitTransform = portalRed.transform;
+        }
+
+        if (lineRenderer == null)
+            lineRenderer = GetComponent<LineRenderer>();
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.enabled = false;
     }
 
     private void Update()
-    {   
+    {
         if (playerTransform != null && exitTransform != null)
         {
-            if(useCompass)//CompassClass에서 useCompass가 true가 된다면
+            if (useCompass)
             {
-                time += Time.deltaTime;//시간을 잰다
-                if (time < activeTime)//시간이 ActiveTime을 넘지 못했다면
+                timer += Time.deltaTime;
+
+                if (timer < activeTime)
                 {
-                    lineRenderer.enabled = true;//LineRenderer를 켜고
-                    activatingCompass = true;
-                    lineRenderer.SetPosition(0, playerTransform.position);//LineRenderer의 첫번째 점의 위치는 playerTransform의 position이고
-                    lineRenderer.SetPosition(1, exitTransform.position);//LineRenderer의 두번째 점의 위치는 exitTransform의 position이다
+                    UpdateLineRenderer();
                 }
                 else
                 {
-                    activatingCompass=false;
-                    Destroy(this.gameObject);//시간이 ActiveTime을 넘었다면 이 아이템을 파괴한다.
+                    DestroyCompass();
                 }
             }
-
             else
             {
-                lineRenderer.enabled=false;//평소에는 LineRenderer를 끈다.
+                lineRenderer.enabled = false;
+
             }
         }
     }
+
+    private void UpdateLineRenderer()
+    {
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, playerTransform.position);
+        lineRenderer.SetPosition(1, exitTransform.position);
+    }
+
+    private void DestroyCompass()
+    {
+        lineRenderer.enabled = false;
+        Destroy(gameObject);
+    }
 }
-    
+
+
 
 
 //    void Update()

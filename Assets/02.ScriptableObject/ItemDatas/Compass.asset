@@ -17,6 +17,8 @@ MonoBehaviour:
   isStackable: 1
   ItemObject: {fileID: 304470267434528100, guid: c4943cd7af2de294f8d0c34225f88cbe, type: 3}
   item: {fileID: 0}
+  itemUsed: 1
+  compassUsed: 0
   description: "\uCD9C\uAD6C\uAC00 \uC5B4\uB514\uC5D0 \uC788\uB294\uC9C0 \uBC29\uD5A5\uC744
-    \uAC00\uB9AC\uD0A4\uB294 \uB098\uCE68\uBC18\n15\uCD08 \uB3D9\uC548 \uBC29\uD5A5\uC744
-    \uAC00\uB9AC\uD0A8\uB2E4."
+    \uAC00\uB9AC\uD0A4\uB294 \uB098\uCE68\uBC18\n\uD3EC\uD0C8\uC774 \uD65C\uC131\uD654
+    \uB420 \uB54C \uC0AC\uC6A9\uD558\uC138\uC694."

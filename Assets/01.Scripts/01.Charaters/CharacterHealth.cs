@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class CharacterHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
-    private float health;
+    public float maxHealth = 100;
+    public float health;
     public event Action OnDie;
     public event Action PlayerDie;
 
