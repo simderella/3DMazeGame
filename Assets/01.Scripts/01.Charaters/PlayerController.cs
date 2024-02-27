@@ -113,12 +113,13 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            // 이동 입력이 시작될 때 이전에 재생 중인 걷는 소리 중지. 걷는 소리 중첩되지 않도록. 발소리 겹치지 않게.
-            soundManager.StopFootstepSFX();
+            
+            
 
             curMovementInput = context.ReadValue<Vector2>();
             animator.SetBool("Walk", true);
-
+            
+            soundManager.StopFootstepSFX(); // 이동 입력이 시작될 때 이전에 재생 중인 걷는 소리 중지. 걷는 소리 중첩되지 않도록. 발소리 겹치지 않게.
             soundManager.PlaySFX("FootstepSound"); // 걷는 소리만 재생
         }
         else if (context.phase == InputActionPhase.Canceled)
