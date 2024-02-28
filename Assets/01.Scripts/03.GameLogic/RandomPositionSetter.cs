@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RandomPositionSetter : MonoBehaviour
 {
     public Transform[] spawnPoints; // 미리 정의된 4가지 위치
-
     void Start()
     {
         SetRandomPosition();
