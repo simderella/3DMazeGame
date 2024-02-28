@@ -145,7 +145,6 @@ public class SelectDisplay : MonoBehaviour
             if (ItemManager.Instance.slots[CurrentIndex].GetComponent<Slot>().item != null)
             {
                 ItemManager.Instance.items[CurrentIndex].GetItem().StopShoot();
-
             }
 
         }

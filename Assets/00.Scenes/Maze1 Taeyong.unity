@@ -2554,6 +2554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  health: 0
   healthBarImage: {fileID: 0}
 --- !u!143 &163906804
 CharacterController:
@@ -5457,6 +5458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  health: 0
   healthBarImage: {fileID: 0}
 --- !u!114 &317792427
 MonoBehaviour:
@@ -20474,6 +20476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  health: 0
   healthBarImage: {fileID: 0}
 --- !u!114 &1408421999
 MonoBehaviour:
@@ -23598,6 +23601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  health: 0
   healthBarImage: {fileID: 289261140}
 --- !u!114 &1622172707
 MonoBehaviour:
@@ -30196,7 +30200,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
