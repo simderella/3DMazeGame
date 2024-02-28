@@ -22299,7 +22299,7 @@ MonoBehaviour:
   musicSource: {fileID: 1771219469}
   sfxSource: {fileID: 1543471553}
   normalBackgroundClip: {fileID: 8300000, guid: 491f03a575f132548a359941c29fa1d7, type: 3}
-  enemyBackgroundClip: {fileID: 8300000, guid: 395a0d0657d15694082701c02974f1bd, type: 3}
+  enemyBackgroundClip: {fileID: 8300000, guid: e9c4b74f950d7f74ea53018aa3fa4eef, type: 3}
 --- !u!4 &1544103646
 Transform:
   m_ObjectHideFlags: 0
