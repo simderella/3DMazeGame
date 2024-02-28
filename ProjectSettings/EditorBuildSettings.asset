@@ -9,19 +9,19 @@ EditorBuildSettings:
     path: Assets/00.Scenes/01.StartScene.unity
     guid: 78c417d6aa3721c4aa863e768765881c
   - enabled: 1
-    path: Assets/00.Scenes/Maze2 All.unity
+    path: Assets/00.Scenes/Maze1 All.unity
     guid: a1b76848779562a48a1f910d024caf99
   - enabled: 1
-    path: Assets/00.Scenes/Maze5 Hyeongjin.unity
+    path: Assets/00.Scenes/Maze2 Hyeongjin.unity
     guid: b94c56f748284004e87350b7c405ed0f
   - enabled: 1
     path: Assets/00.Scenes/Maze3 Hyejin.unity
     guid: 8697f44753aa3eb498b67113951c0b05
   - enabled: 1
-    path: Assets/00.Scenes/Maze1 Taeyong.unity
+    path: Assets/00.Scenes/Maze4 Taeyong.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/00.Scenes/Maze4 Jinho.unity
+    path: Assets/00.Scenes/Maze5 Jinho.unity
     guid: 2e849d5dfe8336b428e51c6fce15a991
   - enabled: 1
     path: Assets/00.Scenes/02.LoadingScene.unity
