@@ -12293,7 +12293,8 @@ PrefabInstance:
       value: EscMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4206421275630242338, guid: b4ef6d4ed1f3d0e4eb38406cc4f4e385, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4ef6d4ed1f3d0e4eb38406cc4f4e385, type: 3}
