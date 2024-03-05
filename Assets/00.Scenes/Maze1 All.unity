@@ -30050,6 +30050,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 27241902}
+  - {fileID: 1828181011}
+  - {fileID: 1442919512}
+  - {fileID: 498936417}
 --- !u!43 &1639909187
 Mesh:
   m_ObjectHideFlags: 0
