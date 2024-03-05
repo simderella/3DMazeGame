@@ -6869,7 +6869,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotsHolder: {fileID: 1986081080}
-  items: []
+  items:
+  - item: {fileID: 11400000, guid: a5bf530e47f440148b8a9b8b7392f48e, type: 2}
+    quantity: 3
+  - item: {fileID: 11400000, guid: 53434aa11d82a474f8492f7661672d2a, type: 2}
+    quantity: 3
   slots: []
 --- !u!4 &391268049
 Transform:
